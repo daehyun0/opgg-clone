@@ -5,23 +5,41 @@ import SummonerSearchInput from "./SummonerSearchInput.vue";
 
 <template>
   <nav class="navigation-section-root">
-    <section class="menu-list empty"></section>
-    <SummonerSearchInput class="summoner-search-input"/>
+    <section class="top-section"></section>
+    <section class="bottom-section">
+      <section class="menu-list empty"></section>
+      <SummonerSearchInput class="summoner-search-input"/>
+    </section>
   </nav>
 </template>
 
 <style scoped lang="scss">
+@import "@/styles/mixins.scss";
+
 .navigation-section-root {
   background-color: #1ea1f7;
-  height: 97px;
-  width: 100%;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  & > .top-section {
+    // 컨텐츠가 없어서 너비값 추가
+    height: 41px;
+  }
 
-  & > .summoner-search-input {
-    padding: 12px 0;
+  & > .bottom-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    @include flexRow(space-between, flex-end);
+
+    & > .menu-list {
+      // 컨텐츠가 없어서 너비값 추가
+      flex: 1 1 100%;
+    }
+
+    & > .summoner-search-input {
+      flex: 1 0 280px;
+      margin-left: 24px;
+      padding: 12px 0;
+    }
   }
 }
 </style>

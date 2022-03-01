@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import SummonerSearchInput from "./SummonerSearchInput.vue";
+import SummonerSearchInput from "@/components/SummonerSearchInput.vue";
 </script>
 
 <template>

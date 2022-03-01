@@ -12,3 +12,7 @@
 @mixin flexRow($justify-content, $align-items) {
   @include flex(row, $justify-content, $align-items);
 }
+
+@mixin solid-1($border-color) {
+  border: solid 1px $border-color;
+}

@@ -13,7 +13,7 @@ import colors from "@/scripts/colors";
 
 .tag-root {
   @include borderRad(2px);
-  @include solid-1(v-bind('colors.silverTwo'));
+  @include border-solid-1(v-bind('colors.silverTwo'));
   background-color: v-bind("colors.silver");
   color: v-bind("colors.slateGray");
   padding: 3px 4px;

@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import PreviousTierTag from "@/components/PreviousTierTag.vue";
 import { defineProps } from "vue";
+import ProfileWithInfo from "@/components/ProfileWithInfo.vue";
 
 defineProps<{
   tags: Array<{
     season: Number;
     tier: String;
   }>;
+  profileBorderImageUrl: string;
+  profileImageUrl: string;
+  level: number;
+  nickname: string;
+  rank: number;
+  rankPercentOfTop: number;
 }>();
 </script>
 
@@ -14,14 +21,23 @@ defineProps<{
   <section class="summoner-profile-section-root">
     <section class="tags">
       <PreviousTierTag
-          class="tag"
+        class="tag"
         v-for="tag in tags"
         :key="tag"
         :season="tag.season"
         :tier="tag.tier"
       ></PreviousTierTag>
     </section>
-    <section class="profile">profile&info</section>
+    <section class="profile">
+      <ProfileWithInfo
+        :nickname="nickname"
+        :level="level"
+        :profile-border-image-url="profileBorderImageUrl"
+        :profile-image-url="profileImageUrl"
+        :rank="rank"
+        :rank-percent-of-top="rankPercentOfTop"
+      />
+    </section>
   </section>
 </template>
 
@@ -44,7 +60,7 @@ defineProps<{
   }
 
   & > .profile {
-    margin-top: 6px;
+    margin-top: 17px;
     padding: 0 10px;
   }
 }

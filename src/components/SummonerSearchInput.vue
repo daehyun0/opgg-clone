@@ -26,7 +26,7 @@ import colors from "@/scripts/colors";
   & > .container {
     background-color: v-bind("colors.whiteTwo");
     @include flexRow(space-between, center);
-    @include borderRad(2);
+    @include borderRad(2px);
 
     & > .input-summoner-name {
       height: 100%;

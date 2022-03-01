@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import StyleConstants from "@/scripts/styleConstants";
 import SummonerSearchInput from "@/components/SummonerSearchInput.vue";
 </script>
 
@@ -25,7 +25,7 @@ import SummonerSearchInput from "@/components/SummonerSearchInput.vue";
   }
 
   & > .bottom-section {
-    max-width: 1000px;
+    max-width: v-bind("StyleConstants.maxWidth");
     margin: 0 auto;
     width: 100%;
     @include flexRow(space-between, flex-end);

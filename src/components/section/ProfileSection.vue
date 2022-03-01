@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import StyleConstants from "@/scripts/styleConstants";
 import PreviousTierTag from "@/components/PreviousTierTag.vue";
 import { defineProps } from "vue";
 import ProfileWithInfo from "@/components/ProfileWithInfo.vue";
@@ -45,7 +46,7 @@ defineProps<{
 @import "@/styles/mixins.scss";
 
 .summoner-profile-section-root {
-  max-width: 1000px;
+  max-width: v-bind('StyleConstants.maxWidth');
   box-sizing: border-box;
   margin: 0 auto;
   padding: 15px 20px;

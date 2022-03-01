@@ -24,8 +24,6 @@ import colors from "@/scripts/colors";
   height: 32px;
 
   & > .container {
-    width: 280px;
-    height: 100%;
     background-color: v-bind("colors.whiteTwo");
     @include flexRow(space-between, center);
     @include borderRad(2);

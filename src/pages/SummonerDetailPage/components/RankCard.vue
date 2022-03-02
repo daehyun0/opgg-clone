@@ -23,8 +23,8 @@ const totalMatchCount = computed(() => props.winCount + props.loseCount);
 </script>
 
 <template>
-  <Card class="rank-card-root" :class="{unranked: hasResults}" v-if="hasResults">
-    <div class="ranked" v-if="!hasResults">
+  <Card class="rank-card-root" v-if="hasResults">
+    <div class="ranked" v-if="hasResults">
       <img :src="tierImageUrl" />
       <div class="info">
         <div class="rank-type">{{ rankType }}</div>
@@ -42,7 +42,7 @@ const totalMatchCount = computed(() => props.winCount + props.loseCount);
       </div>
     </div>
 
-    <div class="unranked" v-if="hasResults">
+    <div class="unranked" v-if="!hasResults">
       <img src="@/assets/unranked.png">
       <div class="info">
         <div class="rank-type">{{ rankType }}</div>

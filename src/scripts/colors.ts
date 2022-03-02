@@ -11,6 +11,8 @@ const colors: { [key: string]: string } = {
   whiteFour: "#f2f2f2",
   coolGrey: "#879292",
   bluish: "#1f8ecd",
+  whiteFive: "#ededed",
+  brownishGrey: "#5e5e5e",
 };
 
 export default colors;

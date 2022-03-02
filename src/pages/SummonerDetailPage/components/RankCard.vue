@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import Card from "@/components/common/Card.vue";
-import WinRate from "@/scripts/winRate";
+import WinRate from "@/scripts/domain/winRate";
 import colors from "@/scripts/colors";
 
 const props = defineProps<{

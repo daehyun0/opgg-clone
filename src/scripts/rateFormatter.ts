@@ -11,4 +11,11 @@ export default {
       maximumFractionDigits: 1,
     }).format(number);
   },
+
+  DecimalFormatMinMaxFractionZero(number: number) {
+    return new Intl.NumberFormat("ko-KR", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(number);
+  },
 };

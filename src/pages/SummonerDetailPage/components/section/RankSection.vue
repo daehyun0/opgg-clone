@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Card from "@/components/common/Card.vue";
 import RankCard from "@/pages/SummonerDetailPage/components/RankCard.vue";
+import WinRateTabs from "@/pages/SummonerDetailPage/components/WinRateTables.vue";
 
 defineProps<{
   leagues: Array<{
@@ -31,12 +32,18 @@ defineProps<{
       :win-count="league.winCount"
       :lose-count="league.loseCount"
     ></RankCard>
+
+    <WinRateTabs class="win-rate-table"/>
   </section>
 </template>
 
 <style scoped lang="scss">
 .section-rank-root {
   & > .rank-card + .rank-card {
+    margin-top: 8px;
+  }
+
+  & > .rank-card + .win-rate-table {
     margin-top: 8px;
   }
 }

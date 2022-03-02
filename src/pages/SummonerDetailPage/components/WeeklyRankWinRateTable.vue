@@ -102,6 +102,7 @@ const mostChampionInRankInfos = computed(() => {
     font-weight: bold;
 
     & > .champion-name {
+      flex: 0 0 60px;
       font-size: 13px;
       color: v-bind("colors.brownishGrey");
     }
@@ -109,10 +110,6 @@ const mostChampionInRankInfos = computed(() => {
     & > .win-rate {
       font-size: 13px;
       color: v-bind("colors.coolGrey");
-    }
-
-    & > .champion-name + .win-rate {
-      margin-left: 4px;
     }
 
     & > .graph {
@@ -138,6 +135,10 @@ const mostChampionInRankInfos = computed(() => {
         @include flexRow(flex-end, center);
         padding-right: 4px;
       }
+    }
+
+    & > .win-rate + .graph {
+      margin-left: 12px;
     }
   }
 

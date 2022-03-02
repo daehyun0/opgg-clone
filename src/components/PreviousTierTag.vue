@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Tag from "@/components/common/tag.vue";
+import Tag from "@/components/common/Tag.vue";
 import {computed, defineProps, PropType} from "vue";
 import getSeasonString from "@/scripts/getSeasonString";
 

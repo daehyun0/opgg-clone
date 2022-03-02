@@ -13,6 +13,7 @@ const colors: { [key: string]: string } = {
   bluish: "#1f8ecd",
   whiteFive: "#ededed",
   brownishGrey: "#5e5e5e",
+  coral: "#ee5a52",
 };
 
 export default colors;

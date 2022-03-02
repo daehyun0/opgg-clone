@@ -9,8 +9,12 @@ export default {
     return winCount / this.getTotalCount(winCount, loseCount);
   },
 
+  getWinRatePercent(winCount: number, loseCount: number) {
+    return this.getWinRate(winCount, loseCount) * 100;
+  },
+
   getWinRateFormatted(winCount: number, loseCount: number) {
-    const winRatePercent = this.getWinRate(winCount, loseCount) * 100;
+    const winRatePercent = this.getWinRatePercent(winCount, loseCount);
     return rateFormatter.DecimalFormatMinMaxFractionZero(winRatePercent) + "%";
   },
 };

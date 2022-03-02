@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Card from "@/components/common/Card.vue";
 import RankCard from "@/pages/SummonerDetailPage/components/RankCard.vue";
-import WinRateTabs from "@/pages/SummonerDetailPage/components/WinRateTables.vue";
+import WinRateTables from "@/pages/SummonerDetailPage/components/WinRateTables.vue";
 
 defineProps<{
   leagues: Array<{
@@ -33,7 +33,7 @@ defineProps<{
       :lose-count="league.loseCount"
     ></RankCard>
 
-    <WinRateTabs class="win-rate-table"/>
+    <WinRateTables class="win-rate-table"/>
   </section>
 </template>
 

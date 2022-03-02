@@ -3,6 +3,7 @@ import colors from "@/scripts/colors";
 import Tabs from "@/components/common/Tab.vue";
 import { computed, defineProps, ref } from "vue";
 import ChampionWinRateTable from "@/pages/SummonerDetailPage/components/ChampionWinRateTable.vue";
+import WeeklyRankWinRateTable from "@/pages/SummonerDetailPage/components/WeeklyRankWinRateTable.vue";
 
 const props = withDefaults(
   defineProps<{
@@ -91,6 +92,8 @@ let tabKey = ref("most-champion");
     <ChampionWinRateTable
       :most-champion-win-rate-infos="mostChampionWinRateInfo"
     />
+
+    <WeeklyRankWinRateTable/>
   </div>
 </template>
 

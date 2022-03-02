@@ -53,6 +53,7 @@ const mostChampionInRankInfos = computed(() => {
   <div
     class="weekly-rank-win-rate-table-root"
     v-for="mostChampionInRankInfo in mostChampionInRankInfos"
+    :key="mostChampionInRankInfo.championName"
   >
     <img
       class="champion-image"

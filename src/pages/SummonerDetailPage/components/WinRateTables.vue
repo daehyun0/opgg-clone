@@ -75,6 +75,12 @@ const props = withDefaults(
 
 let tabKey = ref("most-champion");
 
+const isTabChampionWinRate = computed(() => tabKey.value === "most-champion");
+const isTabWeeklyRankWinRate = computed(() => tabKey.value === "weekly-rank");
+
+const handleChangeTab = (newTabKey: string) => {
+  tabKey.value = newTabKey;
+}
 </script>
 
 <template>
@@ -87,13 +93,15 @@ let tabKey = ref("most-champion");
       ]"
       name="win-rate"
       :selected-key="tabKey"
+      @select="handleChangeTab"
     />
 
     <ChampionWinRateTable
+      v-if="isTabChampionWinRate"
       :most-champion-win-rate-infos="mostChampionWinRateInfo"
     />
 
-    <WeeklyRankWinRateTable/>
+    <WeeklyRankWinRateTable v-else-if="isTabWeeklyRankWinRate" />
   </div>
 </template>
 

@@ -117,7 +117,7 @@ let tabKey = ref("most-champion");
     }
 
     & > input:checked + label {
-      background-color: v-bind("colors.whiteFive");
+      background-color: v-bind("colors.whiteFour");
       border-bottom: none;
       color: v-bind("colors.brownishGrey");
       font-weight: bold;

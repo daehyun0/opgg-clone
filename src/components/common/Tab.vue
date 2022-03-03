@@ -18,7 +18,6 @@ const emit = defineEmits<{
 }>();
 
 const handleChangeTab = (e: { target: HTMLInputElement }) => {
-  console.log(e.target.id)
   emit("select", e.target.id);
 };
 </script>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NavigationSection from "@/components/section/NavigationSection.vue";
 import opggSummnoerAPI from "@/scripts/api/opgg-summnoer";
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import ProfileSection from "@/components/section/ProfileSection.vue";
 import Divider from "@/components/Divider.vue";
 import RankAndMatchSection from "@/pages/SummonerDetailPage/components/section/RankAndMatchSection.vue";
@@ -17,6 +17,8 @@ let profile = ref({
   rankPercentOfTop: 16,
 });
 let leagues = ref({});
+let matchSummary: any = ref({});
+
 opggSummnoerAPI.getSummoner("Hide on Bush").then(({ data }) => {
   console.log(data);
   previousTiers.value = data.summoner.previousTiers
@@ -48,9 +50,16 @@ opggSummnoerAPI.getSummoner("Hide on Bush").then(({ data }) => {
       division: league?.tierRank?.division,
       tierRankPoint: league?.tierRank?.tierRankPoint,
       winCount: league?.wins,
-      loseCount: league?.losses
+      loseCount: league?.losses,
     };
   });
+});
+
+opggSummnoerAPI.getMatches("Hide On Bush").then(({ data }) => {
+  matchSummary.value = {
+    ...data
+  };
+  console.log(data)
 });
 </script>
 
@@ -67,7 +76,7 @@ opggSummnoerAPI.getSummoner("Hide on Bush").then(({ data }) => {
   />
   <Divider></Divider>
 
-  <RankAndMatchSection :leagues="leagues"/>
+  <RankAndMatchSection :leagues="leagues" :match-summary="matchSummary" />
 </template>
 
 <style scoped></style>

@@ -10,7 +10,11 @@ export default {
   },
 
   getWinRatePercent(winCount: number, loseCount: number) {
-    return this.getWinRate(winCount, loseCount) * 100;
+    if (winCount + loseCount === 0) {
+      return 0;
+    }
+    const winRate = this.getWinRate(winCount, loseCount) * 100;
+    return rateFormatter.DecimalFormatMinMaxFractionZero(winRate);
   },
 
   getWinRateFormatted(winCount: number, loseCount: number) {

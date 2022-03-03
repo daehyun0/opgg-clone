@@ -9,6 +9,11 @@ const getSummoner = (summonerName: String) => {
   return axiosInstance.get(`/${summonerName}`);
 };
 
+const getMatches = (summonerName: string) => {
+  return axiosInstance.get(`/${summonerName}/matches`);
+};
+
 export default {
   getSummoner,
+  getMatches,
 };

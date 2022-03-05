@@ -17,8 +17,13 @@ const getMatchDetail = (summonerName: String, gameId: string) => {
   return axiosInstance.get(`/${summonerName}/matchDetail/${gameId}`);
 };
 
+const getMostInfo = (summonerName: string): Promise<any> => {
+  return axiosInstance.get(`/${summonerName}/mostInfo`);
+};
+
 export default {
   getSummoner,
   getMatches,
   getMatchDetail,
+  getMostInfo,
 };

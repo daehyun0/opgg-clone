@@ -33,7 +33,7 @@ defineProps<{
       :lose-count="league.loseCount"
     ></RankCard>
 
-    <WinRateTables class="win-rate-table"/>
+    <WinRateTables class="win-rate-table" />
   </section>
 </template>
 

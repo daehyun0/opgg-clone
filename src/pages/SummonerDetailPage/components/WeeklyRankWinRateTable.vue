@@ -13,22 +13,7 @@ const props = withDefaults(
     }>;
   }>(),
   {
-    championsWinRateInfos: () => [
-      {
-        championName: "신지드",
-        championImageUrl:
-          "https://opgg-static.akamaized.net/images/lol/champion/Viktor.png",
-        winCount: 4,
-        loseCount: 7,
-      },
-      {
-        championName: "케이틀린",
-        championImageUrl:
-          "https://opgg-static.akamaized.net/images/lol/champion/Viktor.png",
-        winCount: 6,
-        loseCount: 7,
-      },
-    ],
+    championsWinRateInfos: () => [],
   }
 );
 
@@ -117,21 +102,21 @@ const mostChampionInRankInfos = computed(() => {
       @include flexRow(flex-start, center);
       font-size: 12px;
       font-weight: bold;
-      color: v-bind('Colors.whiteTwo');
+      color: v-bind("Colors.whiteTwo");
       @include borderRad(4px);
       flex: 0 0 123px;
       height: 24px;
       overflow: hidden;
 
       & > .win {
-        background-color: v-bind('Colors.bluish');
+        background-color: v-bind("Colors.bluish");
         height: 100%;
         @include flexRow(flex-start, center);
         padding-left: 4px;
       }
 
       & > .lose {
-        background-color: v-bind('Colors.coral');
+        background-color: v-bind("Colors.coral");
         height: 100%;
         @include flexRow(flex-end, center);
         padding-right: 4px;

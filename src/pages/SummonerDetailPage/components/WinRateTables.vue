@@ -4,6 +4,7 @@ import Tabs from "@/components/common/Tab.vue";
 import { computed, defineProps, ref } from "vue";
 import ChampionWinRateTable from "@/pages/SummonerDetailPage/components/ChampionWinRateTable.vue";
 import WeeklyRankWinRateTable from "@/pages/SummonerDetailPage/components/WeeklyRankWinRateTable.vue";
+import opggSummnoer from "@/scripts/api/opgg-summnoer";
 
 const props = withDefaults(
   defineProps<{
@@ -20,67 +21,46 @@ const props = withDefaults(
     }>;
   }>(),
   {
-    mostChampionWinRateInfo: () => [
-      {
-        championName: "신지드",
-        cs: 67.812,
-        csPerMinute: 2.4,
-        winCount: 21,
-        loseCount: 14,
-        kill: 4.3,
-        death: 6.1,
-        assist: 10.7,
-        championImageUrl:
-          "https://opgg-static.akamaized.net/images/lol/champion/Viktor.png",
-      },
-      {
-        championName: "신지드",
-        cs: 67.812,
-        csPerMinute: 2.4,
-        winCount: 21,
-        loseCount: 14,
-        kill: 4.3,
-        death: 6.1,
-        assist: 10.7,
-        championImageUrl:
-            "https://opgg-static.akamaized.net/images/lol/champion/Viktor.png",
-      },
-      {
-        championName: "신지드",
-        cs: 67.812,
-        csPerMinute: 2.4,
-        winCount: 21,
-        loseCount: 14,
-        kill: 4.3,
-        death: 6.1,
-        assist: 10.7,
-        championImageUrl:
-            "https://opgg-static.akamaized.net/images/lol/champion/Viktor.png",
-      },
-      {
-        championName: "신지드",
-        cs: 67.812,
-        csPerMinute: 2.4,
-        winCount: 21,
-        loseCount: 14,
-        kill: 4.3,
-        death: 6.1,
-        assist: 10.7,
-        championImageUrl:
-            "https://opgg-static.akamaized.net/images/lol/champion/Viktor.png",
-      },
-    ],
+    mostChampionWinRateInfo: () => [],
   }
 );
 
 let tabKey = ref("most-champion");
+let champions = ref([]);
+let recentWinRates = ref([]);
 
 const isTabChampionWinRate = computed(() => tabKey.value === "most-champion");
 const isTabWeeklyRankWinRate = computed(() => tabKey.value === "weekly-rank");
 
 const handleChangeTab = (newTabKey: string) => {
   tabKey.value = newTabKey;
-}
+};
+
+opggSummnoer.getMostInfo("Hide On Bush").then(({ data }) => {
+  champions.value = data.champions.map((champion: any) => {
+    return {
+      championName: champion.name,
+      cs: champion.cs,
+      csPerMinute: champion.cs,
+      winCount: champion.wins,
+      loseCount: champion.losses,
+      kill: champion.kills,
+      death: champion.deaths,
+      assist: champion.assists,
+      championImageUrl: champion.imageUrl,
+    };
+  });
+  recentWinRates.value = data.recentWinRate.map(
+    (recentWinRateChampion: any) => {
+      return {
+        championName: recentWinRateChampion.name,
+        championImageUrl: recentWinRateChampion.imageUrl,
+        winCount: recentWinRateChampion.wins,
+        loseCount: recentWinRateChampion.losses,
+      };
+    }
+  );
+});
 </script>
 
 <template>
@@ -98,10 +78,13 @@ const handleChangeTab = (newTabKey: string) => {
 
     <ChampionWinRateTable
       v-if="isTabChampionWinRate"
-      :most-champion-win-rate-infos="mostChampionWinRateInfo"
+      :most-champion-win-rate-infos="champions"
     />
 
-    <WeeklyRankWinRateTable v-else-if="isTabWeeklyRankWinRate" />
+    <WeeklyRankWinRateTable
+      v-else-if="isTabWeeklyRankWinRate"
+      :champions-win-rate-infos="recentWinRates"
+    />
   </div>
 </template>
 

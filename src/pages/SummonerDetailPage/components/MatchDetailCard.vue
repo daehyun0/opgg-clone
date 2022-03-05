@@ -63,7 +63,19 @@ const gamePlayedTimeString = computed(() => {
 });
 
 const itemsWithEmptySlot = computed(() => {
-  return props.items.concat([{}, {}, {}, {}, {}, {}, {}, {}]).slice(0, 8);
+  const lastSlotIdx = 7;
+  return props.items
+    .concat([{}, {}, {}, {}, {}, {}, {}, {}])
+    .slice(0, 8)
+    .map((slot: any, idx: number) => {
+      if (idx === lastSlotIdx) {
+        return {
+          ...slot,
+          isDisabled: true,
+        };
+      }
+      return slot;
+    });
 });
 
 const winClassName = computed(() => {
@@ -165,7 +177,13 @@ const ExpandImage = computed(() => {
             v-for="item in itemsWithEmptySlot"
             :class="winClassName"
           >
-            <ItemImage :image-url="item.imageUrl" :width="22" :height="22" />
+            <ItemImage
+              :image-url="item.imageUrl"
+              :is-win="isWin"
+              :is-disabled="item.isDisabled"
+              :width="22"
+              :height="22"
+            />
           </li>
         </ul>
         <div class="ward">
@@ -373,14 +391,6 @@ const ExpandImage = computed(() => {
 
         & > .item {
           margin-left: 2px;
-        }
-
-        & > .item.win {
-          background-color: v-bind("colors.greyBlue");
-        }
-
-        & > .item.lose {
-          background-color: v-bind("colors.pinkishGreyFour");
         }
 
         & > .item:nth-child(n + 5) {

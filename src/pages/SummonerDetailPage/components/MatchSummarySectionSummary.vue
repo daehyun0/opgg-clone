@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, defineProps } from "vue";
 import kda from "@/scripts/domain/kda";
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 
 const props = defineProps<{
   rawGameSummary: any;

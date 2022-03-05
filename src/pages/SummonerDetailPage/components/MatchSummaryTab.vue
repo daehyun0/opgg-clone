@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Tab from "@/components/common/Tab.vue";
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 import { computed, defineProps, ref } from "vue";
 
 const props = defineProps<{

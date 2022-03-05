@@ -1,4 +1,4 @@
-const colors: { [key: string]: string } = {
+const Colors: { [key: string]: string } = {
   warmGrey: "#727272",
   whiteTwo: "#ffffff",
   silverTwo: "#d0d3d4",
@@ -39,4 +39,4 @@ const colors: { [key: string]: string } = {
   tomato: "#ec4f48",
 };
 
-export default colors;
+export default Colors;

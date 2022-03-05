@@ -2,7 +2,7 @@
 import { computed, defineProps } from "vue";
 import positionService from "@/scripts/domain/position";
 import winRate from "@/scripts/domain/winRate";
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 
 import IconTop from "@/assets/icon-mostposition-top.png";
 import IconAdc from "@/assets/icon-mostposition-adc.png";

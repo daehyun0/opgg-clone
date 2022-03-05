@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import winRate from "@/scripts/domain/winRate";
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 
 const props = withDefaults(
   defineProps<{

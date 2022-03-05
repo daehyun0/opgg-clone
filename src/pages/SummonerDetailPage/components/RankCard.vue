@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import Card from "@/components/common/Card.vue";
 import WinRate from "@/scripts/domain/winRate";
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 
 const props = defineProps<{
   hasResults: boolean;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Tag from "@/components/common/Tag.vue";
 import EnumKillingMessageType from "@/scripts/types/enumKillingMessageType";
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 
 withDefaults(
   defineProps<{

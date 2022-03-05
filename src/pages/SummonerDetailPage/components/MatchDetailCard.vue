@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 import Card from "@/components/common/Card.vue";
 import { computed } from "vue";
 import Divider from "@/components/Divider.vue";

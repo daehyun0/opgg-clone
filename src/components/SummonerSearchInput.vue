@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 </script>
 
 <style scoped lang="scss">

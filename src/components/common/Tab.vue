@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 
 withDefaults(
   defineProps<{

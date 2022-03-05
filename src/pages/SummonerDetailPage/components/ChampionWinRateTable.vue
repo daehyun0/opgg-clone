@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 import {computed} from "vue";
 import WinRate from "@/scripts/domain/winRate";
 import kda from "@/scripts/domain/kda";

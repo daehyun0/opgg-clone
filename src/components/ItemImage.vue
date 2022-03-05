@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 import WinIconSlotDisabled from "@/assets/icon-slot-disabled-blue.png";
 import LoseIconSlotDisabled from "@/assets/icon-slot-disabled-red.png";
 import { computed } from "vue";

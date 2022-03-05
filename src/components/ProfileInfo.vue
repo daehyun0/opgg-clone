@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import colors from "@/scripts/colors";
+import Colors from "@/scripts/colors";
 import RankFormatter from "@/scripts/rankFormatter";
 import {computed} from "vue";
 

@@ -116,10 +116,10 @@ const lastGamesSummary = computed(() => {
 
     & > .graph + .kda {
     }
+  }
 
-    & > .win-count + .info {
-      margin-top: 14px;
-    }
+  & > .win-count + .info {
+    margin-top: 14px;
   }
 }
 </style>

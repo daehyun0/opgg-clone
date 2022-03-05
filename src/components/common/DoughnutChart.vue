@@ -9,7 +9,7 @@ interface Stroke {
 const props = defineProps<{
   width: number;
   height: number;
-  strokes: Stroke;
+  strokes: Array<Stroke>;
   strokeWidth: number;
   text: string;
 }>();
@@ -41,7 +41,7 @@ const calcArc = (myRatio: number) => {
 
 const getStrokeDashArray = (myRatio: number) => {
   if (!myRatio) {
-    return '0';
+    return "0";
   }
 
   const arc = calcArc(myRatio);

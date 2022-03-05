@@ -13,7 +13,12 @@ const getMatches = (summonerName: string) => {
   return axiosInstance.get(`/${summonerName}/matches`);
 };
 
+const getMatchDetail = (summonerName: String, gameId: string) => {
+  return axiosInstance.get(`/${summonerName}/matchDetail/${gameId}`);
+};
+
 export default {
   getSummoner,
   getMatches,
+  getMatchDetail,
 };

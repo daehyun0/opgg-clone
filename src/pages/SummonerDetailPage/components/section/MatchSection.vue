@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import MatchSummaryByRankType from "@/pages/SummonerDetailPage/components/MatchSummaryByRankType.vue";
+import MatchDetail from "@/pages/SummonerDetailPage/components/MatchDetail.vue";
 
 defineProps<{
   matchSummary: {
@@ -12,9 +13,17 @@ defineProps<{
 </script>
 
 <template>
-  <MatchSummaryByRankType :match-summary="matchSummary"/>
+  <section class="match-section-root">
+    <MatchSummaryByRankType class="match-summary" :match-summary="matchSummary"/>
+    <MatchDetail class="match-detail"/>
+  </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.match-section-root {
+  & > .match-summary + .match-detail {
+    margin-top: 16px;
+  }
+}
 
 </style>

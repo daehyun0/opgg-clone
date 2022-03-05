@@ -24,8 +24,10 @@ const props = defineProps<{
 
 <template>
   <section class="section-rank-and-match-root">
-    <RankSection class="rank-section" :leagues="leagues" />
-    <MatchSection class="match-section" :match-summary="matchSummary" />
+    <div class="rank-and-match-container">
+      <RankSection class="rank-section" :leagues="leagues" />
+      <MatchSection class="match-section" :match-summary="matchSummary" />
+    </div>
   </section>
 </template>
 
@@ -34,18 +36,23 @@ const props = defineProps<{
 
 .section-rank-and-match-root {
   padding: 10px 0;
-  @include flexRow(center, flex-start);
+  max-width: 1000px;
+  margin: 0 auto;
 
-  & > .rank-section {
-    flex: 0 0 300px;
-  }
+  & > .rank-and-match-container {
+    @include flexRow(flex-start, flex-start);
 
-  & > .match-section {
-    flex: 0 0 690px;
-  }
+    & > .rank-section {
+      flex: 0 0 300px;
+    }
 
-  & > .rank-section + .match-section {
-    margin-left: 10px;
+    & > .match-section {
+      flex: 0 0 690px;
+    }
+
+    & > .rank-section + .match-section {
+      margin-left: 10px;
+    }
   }
 }
 </style>

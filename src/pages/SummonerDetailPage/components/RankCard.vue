@@ -69,7 +69,7 @@ const totalMatchCount = computed(() => props.winCount + props.loseCount);
     & > .info {
       & > .rank-type {
         font-size: 11px;
-        color: v-bind("colors.coolGrey");
+        color: v-bind("Colors.coolGrey");
       }
 
       & > .most-line-and-total-match-count {
@@ -89,7 +89,7 @@ const totalMatchCount = computed(() => props.winCount + props.loseCount);
         margin-top: 4px;
         font-size: 15px;
         font-weight: bold;
-        color: v-bind("colors.bluish");
+        color: v-bind("Colors.bluish");
       }
 
       & > .most-line-and-total-match-count + .tier {
@@ -98,7 +98,7 @@ const totalMatchCount = computed(() => props.winCount + props.loseCount);
 
       & > .lp-and-total-match-count {
         font-size: 12px;
-        color: v-bind("colors.coolGrey");
+        color: v-bind("Colors.coolGrey");
 
         & > .lp {
           font-weight: bold;
@@ -111,7 +111,7 @@ const totalMatchCount = computed(() => props.winCount + props.loseCount);
 
       & > .win-rate {
         font-size: 12px;
-        color: v-bind("colors.coolGrey");
+        color: v-bind("Colors.coolGrey");
       }
 
       & > .lp-and-total-match-count + .win-rate {
@@ -135,11 +135,11 @@ const totalMatchCount = computed(() => props.winCount + props.loseCount);
 
     & > .info {
       font-size: 13px;
-      color: v-bind('colors.coolGrey');
+      color: v-bind('Colors.coolGrey');
 
       & > .rank-type {
         font-size: 11px;
-        color: v-bind("colors.coolGrey");
+        color: v-bind("Colors.coolGrey");
       }
 
       & > .unranked {

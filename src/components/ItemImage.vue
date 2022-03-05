@@ -51,10 +51,10 @@ const winClassName = computed(() => {
 }
 
 .slot.win {
-  background-color: v-bind("colors.greyBlue");
+  background-color: v-bind("Colors.greyBlue");
 }
 
 .slot.lose {
-  background-color: v-bind("colors.pinkishGreyFour");
+  background-color: v-bind("Colors.pinkishGreyFour");
 }
 </style>

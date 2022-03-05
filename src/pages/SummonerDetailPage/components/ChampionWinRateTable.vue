@@ -85,12 +85,12 @@ const mostChampionsInfos = computed(() => {
         font-size: 13px;
         font-weight: bold;
         text-align: center;
-        color: v-bind('colors.brownishGrey');
+        color: v-bind('Colors.brownishGrey');
       }
 
       .sub {
         font-size: 11px;
-        color: v-bind('colors.coolGrey');
+        color: v-bind('Colors.coolGrey');
         text-align: center;
       }
     }
@@ -111,7 +111,7 @@ const mostChampionsInfos = computed(() => {
   }
 
   & + .champion-win-rate-table {
-    border-top: solid 1px v-bind('colors.silverThree');
+    border-top: solid 1px v-bind('Colors.silverThree');
   }
 }
 </style>

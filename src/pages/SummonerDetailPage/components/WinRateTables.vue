@@ -109,10 +109,10 @@ const handleChangeTab = (newTabKey: string) => {
 @import "@/styles/mixins.scss";
 
 .win-rate-tabs-root {
-  @include border-solid-1(v-bind("colors.silverThree"));
+  @include border-solid-1(v-bind("Colors.silverThree"));
 
   &:deep(.tabs) {
-    background-color: v-bind("colors.whiteFive");
+    background-color: v-bind("Colors.whiteFive");
 
     & > input + label {
       flex: 0 0 50%;
@@ -120,19 +120,19 @@ const handleChangeTab = (newTabKey: string) => {
       box-sizing: border-box;
       font-size: 12px;
       text-align: center;
-      color: v-bind("colors.coolGrey");
-      border-bottom: solid 1px v-bind("colors.silverThree");
+      color: v-bind("Colors.coolGrey");
+      border-bottom: solid 1px v-bind("Colors.silverThree");
     }
 
     & > input:checked + label {
-      background-color: v-bind("colors.whiteFour");
+      background-color: v-bind("Colors.whiteFour");
       border-bottom: none;
-      color: v-bind("colors.brownishGrey");
+      color: v-bind("Colors.brownishGrey");
       font-weight: bold;
     }
 
     & > label ~ label {
-      border-left: solid 1px v-bind("colors.silverThree");
+      border-left: solid 1px v-bind("Colors.silverThree");
     }
   }
 }

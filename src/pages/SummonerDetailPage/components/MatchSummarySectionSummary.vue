@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, defineProps } from "vue";
 import kda from "@/scripts/domain/kda";
+import DoughnutChart from "@/components/common/DoughnutChart.vue";
 import Colors from "@/scripts/colors";
 
 const props = defineProps<{
@@ -16,6 +17,11 @@ const lastGamesSummary = computed(() => {
     winCount: props.rawGameSummary.wins,
     loseCount: props.rawGameSummary.losses,
     matchCount: props.rawGameSummary.wins + props.rawGameSummary.losses,
+    winRateString:
+      (props.rawGameSummary.wins /
+        (props.rawGameSummary.wins + props.rawGameSummary.losses)) *
+        100 +
+      "%",
     kills: kda.getKdaSingleFormatted(props.rawGameSummary.kills),
     deaths: kda.getKdaSingleFormatted(props.rawGameSummary.deaths),
     assists: kda.getKdaSingleFormatted(props.rawGameSummary.assists),
@@ -35,7 +41,24 @@ const lastGamesSummary = computed(() => {
       {{ lastGamesSummary.loseCount }}패
     </div>
     <div class="info">
-      <div class="graph"></div>
+      <div class="graph">
+        <DoughnutChart
+          :width="90"
+          :height="90"
+          :stroke-width="10"
+          :text="lastGamesSummary.winRateString"
+          :strokes="[
+            {
+              color: 'blue',
+              ratio: lastGamesSummary.winCount,
+            },
+            {
+              color: 'red',
+              ratio: lastGamesSummary.loseCount,
+            },
+          ]"
+        />
+      </div>
       <div class="kda">
         <div class="value">
           <span class="kill">{{ lastGamesSummary.kills }}</span>
@@ -54,14 +77,14 @@ const lastGamesSummary = computed(() => {
 </template>
 
 <style scoped lang="scss">
-@import '@/styles/mixins.scss';
+@import "@/styles/mixins.scss";
 
 .match-summary-section-summary-root {
   padding: 16px 35px 23px 24px;
 
   & > .win-count {
     font-size: 12px;
-    color: v-bind('colors.brownishGreyTwo');
+    color: v-bind("Colors.brownishGreyTwo");
   }
 
   & > .info {
@@ -77,13 +100,13 @@ const lastGamesSummary = computed(() => {
         font-size: 11px;
         font-weight: bold;
         text-align: center;
-        color: v-bind('colors.black');
+        color: v-bind("Colors.black");
       }
 
       & > .average {
         text-align: center;
         font-size: 16px;
-        color: v-bind('colors.greyishBrown');
+        color: v-bind("Colors.greyishBrown");
       }
 
       & > .value + .average {
@@ -92,7 +115,10 @@ const lastGamesSummary = computed(() => {
     }
 
     & > .graph + .kda {
+    }
 
+    & > .win-count + .info {
+      margin-top: 14px;
     }
   }
 }

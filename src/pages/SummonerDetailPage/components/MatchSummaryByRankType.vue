@@ -26,6 +26,6 @@ const props = defineProps<{
 @import "@/styles/mixins.scss";
 
 .match-summary-by-rank-type-root {
-  @include border-solid-1(v-bind("colors.silverThree"));
+  @include border-solid-1(v-bind("Colors.silverThree"));
 }
 </style>

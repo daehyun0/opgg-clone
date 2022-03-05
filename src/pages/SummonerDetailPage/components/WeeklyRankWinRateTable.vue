@@ -105,33 +105,33 @@ const mostChampionInRankInfos = computed(() => {
     & > .champion-name {
       flex: 0 0 60px;
       font-size: 13px;
-      color: v-bind("colors.brownishGrey");
+      color: v-bind("Colors.brownishGrey");
     }
 
     & > .win-rate {
       font-size: 13px;
-      color: v-bind("colors.coolGrey");
+      color: v-bind("Colors.coolGrey");
     }
 
     & > .graph {
       @include flexRow(flex-start, center);
       font-size: 12px;
       font-weight: bold;
-      color: v-bind('colors.whiteTwo');
+      color: v-bind('Colors.whiteTwo');
       @include borderRad(4px);
       flex: 0 0 123px;
       height: 24px;
       overflow: hidden;
 
       & > .win {
-        background-color: v-bind('colors.bluish');
+        background-color: v-bind('Colors.bluish');
         height: 100%;
         @include flexRow(flex-start, center);
         padding-left: 4px;
       }
 
       & > .lose {
-        background-color: v-bind('colors.coral');
+        background-color: v-bind('Colors.coral');
         height: 100%;
         @include flexRow(flex-end, center);
         padding-right: 4px;
@@ -148,7 +148,7 @@ const mostChampionInRankInfos = computed(() => {
   }
 
   & + .weekly-rank-win-rate-table-root {
-    border-top: solid 1px v-bind("colors.silverThree");
+    border-top: solid 1px v-bind("Colors.silverThree");
   }
 }
 </style>

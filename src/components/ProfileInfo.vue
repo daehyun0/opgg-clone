@@ -31,7 +31,7 @@ const formattedRankPercentOfTop = computed(() => RankFormatter.getRankPercentOfT
     font-size: 20px;
     font-weight: bold;
     letter-spacing: -0.77px;
-    color: v-bind("colors.charcoal");
+    color: v-bind("Colors.charcoal");
   }
 
   & > .nickname + .rank {
@@ -41,7 +41,7 @@ const formattedRankPercentOfTop = computed(() => RankFormatter.getRankPercentOfT
   & > .rank {
     font-size: 11px;
     letter-spacing: -0.42px;
-    color: v-bind('colors.slateGray');
+    color: v-bind('Colors.slateGray');
 
     & > .highlight {
       font-weight: bold;

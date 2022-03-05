@@ -52,7 +52,7 @@ const props = defineProps<{
   }
 
   & > .summary + .champions {
-    border-left: solid 1px v-bind("colors.silverThree");
+    border-left: solid 1px v-bind("Colors.silverThree");
   }
 
   & > .positions {
@@ -60,7 +60,7 @@ const props = defineProps<{
   }
 
   & > .champions + .positions {
-    border-left: solid 1px v-bind("colors.silverThree");
+    border-left: solid 1px v-bind("Colors.silverThree");
   }
 }
 </style>

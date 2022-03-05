@@ -12,8 +12,8 @@ import Colors from "@/scripts/colors";
 @import "@/styles/mixins.scss";
 
 .card-root {
-  @include border-solid-1(v-bind("colors.silverThree"));
+  @include border-solid-1(v-bind("Colors.silverThree"));
   @include borderRad(2px);
-  background-color: v-bind('colors.whiteFour')
+  background-color: v-bind('Colors.whiteFour')
 }
 </style>

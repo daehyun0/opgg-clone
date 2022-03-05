@@ -11,6 +11,6 @@ hr {
   margin: 0;
   border: none;
   height: 1px;
-  background-color: v-bind('colors.whiteThree')
+  background-color: v-bind('Colors.whiteThree')
 }
 </style>

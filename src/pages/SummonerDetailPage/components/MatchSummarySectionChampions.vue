@@ -78,12 +78,12 @@ const champions = computed(() => {
     & > .info {
       & > .champion-name {
         font-size: 14px;
-        color: v-bind("colors.black");
+        color: v-bind("Colors.black");
       }
 
       & > .stat {
         font-size: 11px;
-        color: v-bind("colors.greyishBrown");
+        color: v-bind("Colors.greyishBrown");
 
         & > .win-rate {
           & > .value {
@@ -103,7 +103,7 @@ const champions = computed(() => {
 
     & > .info.desc-empty {
       font-size: 11px;
-      color: v-bind("colors.warmGreyTwo");
+      color: v-bind("Colors.warmGreyTwo");
     }
 
     & > .champion-image + .info {

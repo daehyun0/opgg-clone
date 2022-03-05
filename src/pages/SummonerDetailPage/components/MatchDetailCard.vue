@@ -232,7 +232,7 @@ const ExpandImage = computed(() => {
       font-weight: bold;
       text-align: center;
       flex: 0 0 70px;
-      color: v-bind("colors.greyishBrown");
+      color: v-bind("Colors.greyishBrown");
 
       & > .game-created-time {
         font-weight: normal;
@@ -252,11 +252,11 @@ const ExpandImage = computed(() => {
       }
 
       & > .divider.win {
-        background-color: v-bind("colors.lightGreyBlueTwo");
+        background-color: v-bind("Colors.lightGreyBlueTwo");
       }
 
       & > .divider.lose {
-        background-color: v-bind("colors.pinkishGreyThree");
+        background-color: v-bind("Colors.pinkishGreyThree");
       }
 
       & > .divider + .result {
@@ -302,7 +302,7 @@ const ExpandImage = computed(() => {
       & > .champion-name {
         font-size: 11px;
         letter-spacing: -0.42px;
-        color: v-bind("colors.greyishBrown");
+        color: v-bind("Colors.greyishBrown");
         text-align: center;
         margin-top: 9px;
       }
@@ -316,15 +316,15 @@ const ExpandImage = computed(() => {
         font-size: 15px;
         font-weight: bold;
         letter-spacing: -0.58px;
-        color: v-bind("colors.warmGrey");
+        color: v-bind("Colors.warmGrey");
 
         & > .kill,
         & > .assist {
-          color: v-bind("colors.gunMetal");
+          color: v-bind("Colors.gunMetal");
         }
 
         & > .death {
-          color: v-bind("colors.scarlet");
+          color: v-bind("Colors.scarlet");
         }
       }
 
@@ -332,10 +332,10 @@ const ExpandImage = computed(() => {
         font-size: 11px;
         font-weight: bold;
         letter-spacing: -0.42px;
-        color: v-bind("colors.gunMetal");
+        color: v-bind("Colors.gunMetal");
 
         & > .value {
-          color: v-bind("colors.black");
+          color: v-bind("Colors.black");
         }
       }
 
@@ -365,7 +365,7 @@ const ExpandImage = computed(() => {
 
       & > .level,
       & > .cs {
-        color: v-bind("colors.gunMetal");
+        color: v-bind("Colors.gunMetal");
       }
 
       & .level + .cs {
@@ -373,7 +373,7 @@ const ExpandImage = computed(() => {
       }
 
       & > .contribution-for-kill-rate {
-        color: v-bind("colors.scarlet");
+        color: v-bind("Colors.scarlet");
       }
 
       & > .cs + .contribution-for-kill-rate {
@@ -413,7 +413,7 @@ const ExpandImage = computed(() => {
         & > .vision-ward-count {
           font-size: 11px;
           letter-spacing: -0.42px;
-          color: v-bind("colors.blackTwo");
+          color: v-bind("Colors.blackTwo");
         }
 
         & > .symbol + .vision-ward-count {
@@ -438,7 +438,7 @@ const ExpandImage = computed(() => {
         & > .user {
           font-size: 11px;
           letter-spacing: -0.42px;
-          color: v-bind("colors.greyishBrown");
+          color: v-bind("Colors.greyishBrown");
           flex: 0 0 16px;
           @include flexRow(flex-start, center);
           width: 85px;
@@ -468,14 +468,14 @@ const ExpandImage = computed(() => {
   }
 
   & > .match-summary.win {
-    background-color: v-bind("colors.lightBlueGrey");
-    @include border-solid-1(v-bind("colors.lightGreyBlue"));
+    background-color: v-bind("Colors.lightBlueGrey");
+    @include border-solid-1(v-bind("Colors.lightGreyBlue"));
     border-right: none;
   }
 
   & > .match-summary.lose {
-    background-color: v-bind("colors.pinkishGrey");
-    @include border-solid-1(v-bind("colors.pinkishGreyTwo"));
+    background-color: v-bind("Colors.pinkishGrey");
+    @include border-solid-1(v-bind("Colors.pinkishGreyTwo"));
     border-right: none;
   }
 
@@ -491,13 +491,13 @@ const ExpandImage = computed(() => {
   }
 
   & > .btn-show-detail.win {
-    background-color: v-bind("colors.perryWinkle");
-    @include border-solid-1(v-bind("colors.coolBlue"));
+    background-color: v-bind("Colors.perryWinkle");
+    @include border-solid-1(v-bind("Colors.coolBlue"));
   }
 
   & > .btn-show-detail.lose {
-    background-color: v-bind("colors.pinkishTan");
-    @include border-solid-1(v-bind("colors.brownishPink"));
+    background-color: v-bind("Colors.pinkishTan");
+    @include border-solid-1(v-bind("Colors.brownishPink"));
   }
 }
 

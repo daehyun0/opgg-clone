@@ -80,7 +80,7 @@ const positionImage = {
 
   & > .desc {
     font-size: 12px;
-    color: v-bind("colors.brownishGreyTwo");
+    color: v-bind("Colors.brownishGreyTwo");
   }
 
   & > .prefer-position {
@@ -94,15 +94,15 @@ const positionImage = {
     & > .info {
       & > .name {
         font-size: 14px;
-        color: v-bind("colors.black");
+        color: v-bind("Colors.black");
       }
 
       & > .stat {
         font-size: 11px;
-        color: v-bind("colors.brownishGreyTwo");
+        color: v-bind("Colors.brownishGreyTwo");
 
         & > .select-rate {
-          color: v-bind("colors.bluish");
+          color: v-bind("Colors.bluish");
 
           & > .value {
             font-weight: bold;
@@ -110,7 +110,7 @@ const positionImage = {
         }
 
         & > .win-rate {
-          color: v-bind("colors.black");
+          color: v-bind("Colors.black");
 
           & > .value {
             font-weight: bold;

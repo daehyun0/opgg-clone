@@ -24,7 +24,7 @@ import Colors from "@/scripts/colors";
   height: 32px;
 
   & > .container {
-    background-color: v-bind("colors.whiteTwo");
+    background-color: v-bind("Colors.whiteTwo");
     @include flexRow(space-between, center);
     @include borderRad(2px);
 
@@ -32,7 +32,7 @@ import Colors from "@/scripts/colors";
       height: 100%;
       box-sizing: border-box;
       padding: 9px 14px 8px;
-      color: v-bind("colors.warmGrey");
+      color: v-bind("Colors.warmGrey");
       font-size: 12px;
       flex: 1 0 auto;
     }

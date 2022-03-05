@@ -59,19 +59,19 @@ const optionsFormatted = computed(() => {
 <style scoped lang="scss">
 .tabs {
   padding: 0 16px;
-  background-color: v-bind('colors.whiteFour');
-  border-bottom: solid 1px v-bind('colors.silverThree');
+  background-color: v-bind('Colors.whiteFour');
+  border-bottom: solid 1px v-bind('Colors.silverThree');
 
   &:deep > input + label {
     padding: 12px 0 10px;
     font-size: 12px;
-    color: v-bind('colors.greyishBrown')
+    color: v-bind('Colors.greyishBrown')
   }
 
   &:deep > input:checked + label {
-    color: v-bind("colors.bluish");
+    color: v-bind("Colors.bluish");
     font-weight: bold;
-    border-bottom: solid 2px v-bind("colors.bluish");
+    border-bottom: solid 2px v-bind("Colors.bluish");
   }
 
   &:deep > label ~ label {

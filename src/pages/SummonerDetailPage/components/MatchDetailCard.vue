@@ -5,16 +5,16 @@ import { computed } from "vue";
 import Divider from "@/components/Divider.vue";
 import time from "@/scripts/time";
 import getWinString from "@/scripts/getWinString";
-import ChampionImage from "@/pages/SummonerDetailPage/components/ChampionImage.vue";
-import SpellImage from "@/pages/SummonerDetailPage/components/SpellImage.vue";
-import PerkImage from "@/pages/SummonerDetailPage/components/PerkImage.vue";
+import SpellImage from "@/pages/SummonerDetailPage/components/MatchDetailCardSpellImage.vue";
+import PerkImage from "@/pages/SummonerDetailPage/components/MatchDetailPerkImage.vue";
 import ItemImage from "@/pages/SummonerDetailPage/components/ItemImage.vue";
-import ChampionImageRect from "@/pages/SummonerDetailPage/components/ChampionImageRect.vue";
 import WinWardImage from "@/assets/icon-ward-blue.png";
 import LoseWardImage from "@/assets/icon-ward-red.png";
 import KillMessageTag from "@/pages/SummonerDetailPage/components/KillMessageTag.vue";
 import WinExpandImage from "@/assets/icon-viewdetail-blue.png";
 import LoseExpandImage from "@/assets/icon-viewdetail-red.png";
+import SquareImage from "@/components/SquareImage.vue";
+import CircleImage from "@/components/CircleImage.vue";
 
 const props = withDefaults(
   defineProps<{
@@ -103,20 +103,17 @@ const ExpandImage = computed(() => {
       </div>
       <div class="champion-and-spell-rune">
         <div class="graphic">
-          <ChampionImage
+          <CircleImage
             class="champion"
             :image-url="championImageUrl"
-            :width="46"
-            :height="46"
-          ></ChampionImage>
+            :size="46"
+          />
           <div class="spell">
             <SpellImage
-              :image-url="spellImageUrl.imageUrl"
               v-for="spellImageUrl in spellImageUrls"
               :key="spellImageUrl.imageUrl"
-              :width="22"
-              :height="22"
-            ></SpellImage>
+              :image-url="spellImageUrl.imageUrl"
+            />
           </div>
           <div class="perk">
             <PerkImage
@@ -196,11 +193,7 @@ const ExpandImage = computed(() => {
       <div class="with-player">
         <ul class="users">
           <li class="user" v-for="user in users">
-            <ChampionImageRect
-              :image-url="user.championImageUrl"
-              :width="16"
-              :height="16"
-            />
+            <SquareImage :image-url="user.championImageUrl" :size="16" />
             <span>{{ user.summonerName }}</span>
           </li>
         </ul>

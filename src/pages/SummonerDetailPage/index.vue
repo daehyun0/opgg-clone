@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import NavigationSection from "@/components/section/NavigationSection.vue";
+import NavigationSection from "@/pages/SummonerDetailPage/components/section/NavigationSection.vue";
 import opggSummnoerAPI from "@/scripts/api/opgg-summnoer";
 import { ref } from "vue";
-import ProfileSection from "@/components/section/ProfileSection.vue";
+import ProfileSection from "@/pages/SummonerDetailPage/components/section/ProfileSection.vue";
 import Divider from "@/components/Divider.vue";
 import RankAndMatchSection from "@/pages/SummonerDetailPage/components/section/RankAndMatchSection.vue";
 
@@ -61,7 +61,6 @@ opggSummnoerAPI.getMatches("Hide On Bush").then(({ data }) => {
   };
   console.log(data);
 });
-
 </script>
 
 <template>

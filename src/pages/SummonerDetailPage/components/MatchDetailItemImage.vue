@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import Colors from "@/scripts/colors";
+import BorderRadius2Image from "@/components/BorderRadius2Image.vue";
+import { computed } from "vue";
 import WinIconSlotDisabled from "@/assets/icon-slot-disabled-blue.png";
 import LoseIconSlotDisabled from "@/assets/icon-slot-disabled-red.png";
-import { computed } from "vue";
+import SquareImage from "@/components/SquareImage.vue";
 
 const props = defineProps<{
   imageUrl: string;
-  width: number;
-  height: number;
   isWin: boolean;
   isDisabled: boolean;
 }>();
@@ -28,21 +28,21 @@ const winClassName = computed(() => {
 </script>
 
 <template>
-  <div
-    class="slot"
-    :class="winClassName"
-    :style="{ width: width + 'px', height: height + 'px' }"
-  >
-    <img v-if="ItemImageWithEmptyFallback" :src="ItemImageWithEmptyFallback" />
+  <div class="slot" :class="winClassName">
+    <SquareImage
+      v-if="ItemImageWithEmptyFallback"
+      :image-url="ItemImageWithEmptyFallback"
+      :size="22"
+    />
   </div>
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/mixins.scss";
-
 .slot {
-  @include borderRad(2px);
   overflow: hidden;
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
 
   & > img {
     width: 100%;

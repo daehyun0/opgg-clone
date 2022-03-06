@@ -7,7 +7,7 @@ import time from "@/scripts/time";
 import getWinString from "@/scripts/getWinString";
 import SpellImage from "@/pages/SummonerDetailPage/components/MatchDetailCardSpellImage.vue";
 import PerkImage from "@/pages/SummonerDetailPage/components/MatchDetailPerkImage.vue";
-import ItemImage from "@/pages/SummonerDetailPage/components/ItemImage.vue";
+import ItemImage from "@/pages/SummonerDetailPage/components/MatchDetailItemImage.vue";
 import WinWardImage from "@/assets/icon-ward-blue.png";
 import LoseWardImage from "@/assets/icon-ward-red.png";
 import KillMessageTag from "@/pages/SummonerDetailPage/components/KillMessageTag.vue";
@@ -178,8 +178,7 @@ const ExpandImage = computed(() => {
               :image-url="item.imageUrl"
               :is-win="isWin"
               :is-disabled="item.isDisabled"
-              :width="22"
-              :height="22"
+              :size="22"
             />
           </li>
         </ul>

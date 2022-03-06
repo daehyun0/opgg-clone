@@ -3,7 +3,7 @@ import { computed, defineProps } from "vue";
 import winRate from "@/scripts/domain/winRate";
 import kda from "@/scripts/domain/kda";
 import Colors from "@/scripts/colors";
-import MatchSummarySectionChampionImage from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummarySectionChampionImage.vue";
+import MatchSummarySectionChampionImage from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryChampionImage.vue";
 import KdaRatioStringWithHighlight from "@/pages/SummonerDetailPage/components/KdaRatioStringWithHighlight.vue";
 
 const props = defineProps<{

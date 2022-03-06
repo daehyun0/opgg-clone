@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import MatchSummarySectionSummary from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummarySectionSummary.vue";
-import MatchSummarySectionChampions from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummarySectionChampions.vue";
-import MatchSummarySectionPositions from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummarySectionPositions.vue";
+import MatchSummarySectionSummary from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummarySummarySection.vue";
+import MatchSummarySectionChampions from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryChampionsSection.vue";
+import MatchSummarySectionPositions from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryPositionsSection.vue";
 import Colors from "@/scripts/colors";
 
 const props = defineProps<{

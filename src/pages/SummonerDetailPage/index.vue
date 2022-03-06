@@ -5,17 +5,14 @@ import { ref } from "vue";
 import ProfileSection from "@/pages/SummonerDetailPage/components/ProfileSection/index.vue";
 import Divider from "@/components/Divider.vue";
 import RankAndMatchSection from "@/pages/SummonerDetailPage/components/RankAndMatchSection/index.vue";
+import { useRoute } from "vue-router";
+import History from "@/scripts/domain/history";
+
+const route = useRoute();
+History.addHistory(route.params.summonerName);
 
 let previousTiers = ref(null);
-let profile = ref({
-  nickname: "",
-  level: 1,
-  profileBorderImageUrl:
-    "https://opgg-static.akamaized.net/images/profile_icons/profileIcon1625.jpg",
-  profileImageUrl: "https://www.op.gg/summoner/userName=Hide on Bush",
-  rank: 1,
-  rankPercentOfTop: 16,
-});
+let profile = ref({});
 let leagues = ref({});
 let matchSummary: any = ref({});
 

@@ -1,4 +1,4 @@
-const getSeasonString = (season: number) => {
+const getSeasonString = (season: number): string => {
   return "S" + season;
 };
 

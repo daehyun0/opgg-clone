@@ -1,5 +1,5 @@
 export default {
-  getCreepScoreFormatted(cs: number) {
+  getCreepScoreFormatted(cs: number): string {
     return cs.toFixed(1);
   },
 };

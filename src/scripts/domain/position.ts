@@ -1,5 +1,5 @@
 export default {
-  getSelectRate(selectCount: number, totalCount: number) {
+  getSelectRate(selectCount: number, totalCount: number): number {
     return selectCount / totalCount;
   },
 

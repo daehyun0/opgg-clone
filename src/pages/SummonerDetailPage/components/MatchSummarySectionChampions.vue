@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ChampionImage from "@/pages/SummonerDetailPage/components/ChampionImage.vue";
 import { computed, defineProps } from "vue";
 import winRate from "@/scripts/domain/winRate";
 import kda from "@/scripts/domain/kda";
 import Colors from "@/scripts/colors";
+import MatchSummarySectionChampionImage from "@/pages/SummonerDetailPage/components/MatchSummarySectionChampionImage.vue";
 
 const props = defineProps<{
   rawChampions: any[];
@@ -41,11 +41,9 @@ const champions = computed(() => {
 <template>
   <div class="match-summary-section-champions-root">
     <div class="champion" v-for="champion in champions" :key="champion.key">
-      <ChampionImage
+      <MatchSummarySectionChampionImage
         class="champion-image"
-        :image-url="champion.imageUrl"
-        :width="34"
-        :height="34"
+        :champion-image-url="champion.imageUrl"
       />
       <div class="info" v-if="champion.isExist">
         <div class="champion-name">{{ champion.name }}</div>

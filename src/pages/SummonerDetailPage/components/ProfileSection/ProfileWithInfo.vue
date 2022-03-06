@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Profile from "@/pages/SummonerDetailPage/components/Profile.vue";
-import ProfileInfo from "@/pages/SummonerDetailPage/components/ProfileInfo.vue";
+import Profile from "@/pages/SummonerDetailPage/components/ProfileSection/Profile.vue";
+import ProfileInfo from "@/pages/SummonerDetailPage/components/ProfileSection/ProfileInfo.vue";
 
 defineProps<{
   profileBorderImageUrl: string;

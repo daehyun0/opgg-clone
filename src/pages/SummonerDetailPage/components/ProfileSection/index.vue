@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import StyleConstants from "@/scripts/styleConstants";
-import PreviousTierTag from "@/pages/SummonerDetailPage/components/PreviousTierTag.vue";
+import PreviousTierTag from "@/pages/SummonerDetailPage/components/ProfileSection/PreviousTierTag.vue";
 import { defineProps } from "vue";
-import ProfileWithInfo from "@/pages/SummonerDetailPage/components/ProfileWithInfo.vue";
+import ProfileWithInfo from "@/pages/SummonerDetailPage/components/ProfileSection/ProfileWithInfo.vue";
 
 defineProps<{
   tags: Array<{

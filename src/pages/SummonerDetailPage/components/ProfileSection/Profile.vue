@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LevelBox from "@/pages/SummonerDetailPage/components/LevelBox.vue";
+import LevelBox from "@/pages/SummonerDetailPage/components/ProfileSection/LevelBox.vue";
 
 defineProps<{
   profileBorderImageUrl: string;

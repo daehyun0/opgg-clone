@@ -4,6 +4,7 @@ import {computed} from "vue";
 import WinRate from "@/scripts/domain/winRate";
 import kda from "@/scripts/domain/kda";
 import cs from "@/scripts/domain/cs";
+import KdaRatioStringWithHighlight from "@/pages/SummonerDetailPage/components/KdaRatioStringWithHighlight.vue";
 
 const props = defineProps<{
   mostChampionWinRateInfos: Array<{
@@ -47,7 +48,8 @@ const mostChampionsInfos = computed(() => {
         </div>
       </div>
       <div class="col-2">
-        <div class="kda main">{{ mostChampionInfo.kda }}:1 평점</div>
+        <div class="kda main">
+          <KdaRatioStringWithHighlight :value="mostChampionInfo.kda" append-string=":1 평점"/></div>
         <div class="kda-individual sub">
           {{ mostChampionInfo.kill }} / {{ mostChampionInfo.death }} /
           {{ mostChampionInfo.assist }}

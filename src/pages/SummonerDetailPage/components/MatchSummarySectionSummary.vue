@@ -3,6 +3,7 @@ import { computed, defineProps } from "vue";
 import kda from "@/scripts/domain/kda";
 import Colors from "@/scripts/colors";
 import MatchSummaryGraph from "@/pages/SummonerDetailPage/components/MatchSummaryGraph.vue";
+import KdaRatioStringWithHighlight from "@/pages/SummonerDetailPage/components/KdaRatioStringWithHighlight.vue";
 
 const props = defineProps<{
   rawGameSummary: any;
@@ -51,7 +52,11 @@ const lastGamesSummary = computed(() => {
           <span class="assist">{{ lastGamesSummary.assists }}</span>
         </div>
         <div class="average">
-          <span class="value">{{ lastGamesSummary.kdaAverage }}:1</span>
+          <KdaRatioStringWithHighlight
+            class="value"
+            :value="lastGamesSummary.kdaAverage"
+            append-string=":1"
+          />
           <span class="percent"></span>
         </div>
       </div>

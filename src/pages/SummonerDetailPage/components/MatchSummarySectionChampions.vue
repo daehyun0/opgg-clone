@@ -4,6 +4,7 @@ import winRate from "@/scripts/domain/winRate";
 import kda from "@/scripts/domain/kda";
 import Colors from "@/scripts/colors";
 import MatchSummarySectionChampionImage from "@/pages/SummonerDetailPage/components/MatchSummarySectionChampionImage.vue";
+import KdaRatioStringWithHighlight from "@/pages/SummonerDetailPage/components/KdaRatioStringWithHighlight.vue";
 
 const props = defineProps<{
   rawChampions: any[];
@@ -56,7 +57,11 @@ const champions = computed(() => {
             >({{ champion.wins }}승 {{ champion.losses }}패)</span
           >
           |
-          <span class="kda-average">{{ champion.kdaAverage }} 평점</span>
+          <KdaRatioStringWithHighlight
+            class="kda-average"
+            :value="champion.kdaAverage"
+            append-string=" 평점"
+          />
         </div>
       </div>
       <div class="info desc-empty" v-else>챔피언 정보가 없습니다.</div>

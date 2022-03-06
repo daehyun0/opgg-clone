@@ -2,9 +2,14 @@
 import Colors from "@/scripts/colors";
 import HistoryWindow from "./HistoryWindow.vue";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import Route from "@/scripts/domain/route";
+
+const router = useRouter();
 
 const isShowHistory = ref(false);
 const isShowPreSearch = ref(false);
+const inputSummonerName = ref("");
 
 const showHistory = () => {
   isShowHistory.value = true;
@@ -30,6 +35,19 @@ const handleFocusInput = (e: { target: HTMLInputElement }) => {
 
 const handleInputSummonerNameInput = (e: { target: HTMLInputElement }) => {
   decideFloatingWindow(e.target.value);
+  inputSummonerName.value = e.target.value;
+};
+
+const moveToSummonerDetailRoute = () => {
+  router.push(Route.getSummonerDetailRoute(inputSummonerName.value).path);
+};
+
+const handleClickSearchButton = () => {
+  moveToSummonerDetailRoute();
+};
+
+const handleEnterSummonerNameInput = () => {
+  moveToSummonerDetailRoute();
 };
 </script>
 
@@ -42,8 +60,9 @@ const handleInputSummonerNameInput = (e: { target: HTMLInputElement }) => {
         placeholder="소환사명,챔피언…"
         @focus="handleFocusInput"
         @input="handleInputSummonerNameInput"
+        @keyup.enter="handleEnterSummonerNameInput"
       />
-      <button class="search">
+      <button class="search" @click="handleClickSearchButton">
         <img src="~@/assets/images/icon-gg.svg" alt="gg-logo" />
       </button>
     </div>
@@ -75,6 +94,7 @@ const handleInputSummonerNameInput = (e: { target: HTMLInputElement }) => {
 
     & > .search {
       background-color: transparent;
+      cursor: pointer;
 
       & > img {
         padding: 9px 10px;

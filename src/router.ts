@@ -1,15 +1,19 @@
-import SummonerDetailPage from "@/pages/SummonerDetailPage/index.vue";
-import SummonerSearchPage from "@/pages/SummonerSearchPage/index.vue";
+import Routes from "@/scripts/domain/route";
 import { createRouter, createWebHistory } from "vue-router";
+
+const SummonerSearchRoute = Routes.getSummonerSearchRoute();
+const SummonerDetailRoute = Routes.getSummonerDetailRoute("");
 
 const routes = [
   {
-    path: "/",
-    component: SummonerSearchPage,
+    path: SummonerSearchRoute.vueRouterPath,
+    component: SummonerSearchRoute.component,
+    name: SummonerSearchRoute.name,
   },
   {
-    path: "/:summonerName",
-    component: SummonerDetailPage,
+    path: SummonerDetailRoute.vueRouterPath,
+    component: SummonerDetailRoute.component,
+    name: SummonerDetailRoute.name,
   },
 ];
 

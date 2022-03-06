@@ -5,6 +5,7 @@ import kda from "@/scripts/domain/kda";
 import Colors from "@/scripts/colors";
 import MatchSummarySectionChampionImage from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryChampionImage.vue";
 import KdaRatioStringWithHighlight from "@/pages/SummonerDetailPage/components/KdaRatioStringWithHighlight.vue";
+import WinRateStringWithHighlight from "@/pages/SummonerDetailPage/components/WinRateStringWithHighlight.vue";
 
 const props = defineProps<{
   rawChampions: any[];
@@ -16,10 +17,6 @@ const champions = computed(() => {
       return {
         ...champion,
         isExist: true,
-        winRatePercent: winRate.getWinRatePercent(
-          champion.wins,
-          champion.losses
-        ),
         kdaAverage: kda.getKdaAverage(
           champion.kills,
           champion.deaths,
@@ -50,11 +47,15 @@ const champions = computed(() => {
         <div class="champion-name">{{ champion.name }}</div>
         <div class="stat">
           <span class="win-rate">
-            <span class="value">{{ champion.winRatePercent }}</span>
-            <span>% </span>
+            <WinRateStringWithHighlight
+              class="value"
+              :win-count="champion.wins"
+              :lose-count="champion.losses"
+              append-string="%"
+            />
           </span>
           <span class="win-lose-count"
-            >({{ champion.wins }}승 {{ champion.losses }}패)</span
+            > ({{ champion.wins }}승 {{ champion.losses }}패)</span
           >
           |
           <KdaRatioStringWithHighlight

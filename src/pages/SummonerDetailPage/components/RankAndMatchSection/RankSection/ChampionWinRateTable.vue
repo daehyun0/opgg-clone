@@ -5,6 +5,7 @@ import WinRate from "@/scripts/domain/winRate";
 import kda from "@/scripts/domain/kda";
 import cs from "@/scripts/domain/cs";
 import KdaRatioStringWithHighlight from "@/pages/SummonerDetailPage/components/KdaRatioStringWithHighlight.vue";
+import WinRateStringWithHighlight from "@/pages/SummonerDetailPage/components/WinRateStringWithHighlight.vue";
 
 const props = defineProps<{
   mostChampionWinRateInfos: Array<{
@@ -75,7 +76,13 @@ const mostChampionsInfos = computed(() => {
         </div>
       </div>
       <div class="col-3">
-        <div class="win-rate main">{{ mostChampionInfo.winRate }}</div>
+        <div class="win-rate main">
+          <WinRateStringWithHighlight
+            :win-count="mostChampionInfo.winCount"
+            :lose-count="mostChampionInfo.loseCount"
+            append-string="%"
+          />
+        </div>
         <div class="total-match-count sub">
           {{ mostChampionInfo.totalMatchCount }}게임
         </div>

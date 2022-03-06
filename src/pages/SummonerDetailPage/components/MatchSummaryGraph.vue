@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DoughnutChart from "@/components/common/DoughnutChart.vue";
+import DoughnutChart from "@/components/DoughnutChart.vue";
 import { computed } from "vue";
 import winRate from "@/scripts/domain/winRate";
 import Colors from "@/scripts/colors";

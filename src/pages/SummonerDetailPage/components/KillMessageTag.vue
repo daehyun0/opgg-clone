@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Tag from "@/components/common/Tag.vue";
+import Tag from "@/components/Tag.vue";
 import EnumKillingMessageType from "@/scripts/types/enumKillingMessageType";
 import Colors from "@/scripts/colors";
 

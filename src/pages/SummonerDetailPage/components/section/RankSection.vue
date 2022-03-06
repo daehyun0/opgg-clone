@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Card from "@/components/common/Card.vue";
+import Card from "@/components/Card.vue";
 import RankCard from "@/pages/SummonerDetailPage/components/RankCard.vue";
 import WinRateTables from "@/pages/SummonerDetailPage/components/WinRateTables.vue";
 

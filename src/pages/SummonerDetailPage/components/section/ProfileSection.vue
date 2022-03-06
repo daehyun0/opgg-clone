@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import StyleConstants from "@/scripts/styleConstants";
-import PreviousTierTag from "@/components/PreviousTierTag.vue";
+import PreviousTierTag from "@/pages/SummonerDetailPage/components/PreviousTierTag.vue";
 import { defineProps } from "vue";
-import ProfileWithInfo from "@/components/ProfileWithInfo.vue";
+import ProfileWithInfo from "@/pages/SummonerDetailPage/components/ProfileWithInfo.vue";
 
 defineProps<{
   tags: Array<{
@@ -46,7 +46,7 @@ defineProps<{
 @import "@/styles/mixins.scss";
 
 .summoner-profile-section-root {
-  max-width: v-bind('StyleConstants.maxWidth');
+  max-width: v-bind("StyleConstants.maxWidth");
   box-sizing: border-box;
   margin: 0 auto;
   padding: 15px 20px;

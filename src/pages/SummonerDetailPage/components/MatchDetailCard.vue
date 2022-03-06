@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import Colors from "@/scripts/colors";
-import Card from "@/components/common/Card.vue";
+import Card from "@/components/Card.vue";
 import { computed } from "vue";
 import Divider from "@/components/Divider.vue";
 import time from "@/scripts/time";
 import getWinString from "@/scripts/getWinString";
-import ChampionImage from "@/components/ChampionImage.vue";
-import SpellImage from "@/components/SpellImage.vue";
-import PerkImage from "@/components/PerkImage.vue";
-import ItemImage from "@/components/ItemImage.vue";
-import ChampionImageRect from "@/components/ChampionImageRect.vue";
+import ChampionImage from "@/pages/SummonerDetailPage/components/ChampionImage.vue";
+import SpellImage from "@/pages/SummonerDetailPage/components/SpellImage.vue";
+import PerkImage from "@/pages/SummonerDetailPage/components/PerkImage.vue";
+import ItemImage from "@/pages/SummonerDetailPage/components/ItemImage.vue";
+import ChampionImageRect from "@/pages/SummonerDetailPage/components/ChampionImageRect.vue";
 import WinWardImage from "@/assets/icon-ward-blue.png";
 import LoseWardImage from "@/assets/icon-ward-red.png";
 import KillMessageTag from "@/pages/SummonerDetailPage/components/KillMessageTag.vue";

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Colors from "@/scripts/colors";
-import Tabs from "@/components/common/Tab.vue";
+import Tabs from "@/components/Tab.vue";
 import { computed, defineProps, ref } from "vue";
 import ChampionWinRateTable from "@/pages/SummonerDetailPage/components/ChampionWinRateTable.vue";
 import WeeklyRankWinRateTable from "@/pages/SummonerDetailPage/components/WeeklyRankWinRateTable.vue";

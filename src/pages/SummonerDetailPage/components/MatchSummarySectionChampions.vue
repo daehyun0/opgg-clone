@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ChampionImage from "@/components/ChampionImage.vue";
+import ChampionImage from "@/pages/SummonerDetailPage/components/ChampionImage.vue";
 import { computed, defineProps } from "vue";
 import winRate from "@/scripts/domain/winRate";
 import kda from "@/scripts/domain/kda";

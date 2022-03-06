@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import Card from "@/components/common/Card.vue";
+import Card from "@/components/Card.vue";
 import WinRate from "@/scripts/domain/winRate";
 import Colors from "@/scripts/colors";
 

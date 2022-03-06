@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import StyleConstants from "@/scripts/styleConstants";
-import SummonerSearchInput from "@/components/SummonerSearchInput.vue";
+import SummonerSearchInput from "@/pages/SummonerDetailPage/components/SummonerSearchInput.vue";
 </script>
 
 <template>

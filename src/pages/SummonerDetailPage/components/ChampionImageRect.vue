@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ChampionImage from "@/components/ChampionImage.vue";
+import ChampionImage from "@/pages/SummonerDetailPage/components/ChampionImage.vue";
 
 const props = defineProps<{
   imageUrl: string;

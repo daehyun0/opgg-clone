@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Card from "@/components/Card.vue";
-import RankCard from "@/pages/SummonerDetailPage/components/RankCard.vue";
-import WinRateTables from "@/pages/SummonerDetailPage/components/WinRateTables.vue";
+import RankCard from "@/pages/SummonerDetailPage/components/RankAndMatchSection/RankSection/RankCard.vue";
+import WinRateTables from "@/pages/SummonerDetailPage/components/RankAndMatchSection/RankSection/WinRateTables.vue";
 
 defineProps<{
   leagues: Array<{

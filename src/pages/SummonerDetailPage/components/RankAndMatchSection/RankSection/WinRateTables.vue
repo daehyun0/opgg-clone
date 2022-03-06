@@ -2,8 +2,8 @@
 import Colors from "@/scripts/colors";
 import Tabs from "@/components/Tab.vue";
 import { computed, defineProps, ref } from "vue";
-import ChampionWinRateTable from "@/pages/SummonerDetailPage/components/ChampionWinRateTable.vue";
-import WeeklyRankWinRateTable from "@/pages/SummonerDetailPage/components/WeeklyRankWinRateTable.vue";
+import ChampionWinRateTable from "@/pages/SummonerDetailPage/components/RankAndMatchSection/RankSection/ChampionWinRateTable.vue";
+import WeeklyRankWinRateTable from "@/pages/SummonerDetailPage/components/RankAndMatchSection/RankSection/WeeklyRankWinRateTable.vue";
 import opggSummnoer from "@/scripts/api/opgg-summnoer";
 
 const props = withDefaults(

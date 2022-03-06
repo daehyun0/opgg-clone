@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavigationSection from "@/pages/SummonerDetailPage/components/NavigationSection/index.vue";
+import NavigationSection from "@/pages/components/NavigationSection/index.vue";
 </script>
 
 <template>

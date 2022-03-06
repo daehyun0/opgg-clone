@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavigationSection from "@/pages/SummonerDetailPage/components/NavigationSection/index.vue";
+import NavigationSection from "@/pages/components/NavigationSection/index.vue";
 import opggSummnoerAPI from "@/scripts/api/opgg-summnoer";
 import { ref } from "vue";
 import ProfileSection from "@/pages/SummonerDetailPage/components/ProfileSection/index.vue";

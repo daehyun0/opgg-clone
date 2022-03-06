@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import StyleConstants from "@/scripts/styleConstants";
-import SummonerSearchInput from "@/pages/SummonerDetailPage/components/NavigationSection/SummonerSearchInput.vue";
+import SummonerSearchInput from "@/pages/components/NavigationSection/SummonerSearchInput.vue";
 </script>
 
 <template>
@@ -8,7 +8,7 @@ import SummonerSearchInput from "@/pages/SummonerDetailPage/components/Navigatio
     <section class="top-section"></section>
     <section class="bottom-section">
       <section class="menu-list empty"></section>
-      <SummonerSearchInput class="summoner-search-input"/>
+      <SummonerSearchInput class="summoner-search-input" />
     </section>
   </nav>
 </template>

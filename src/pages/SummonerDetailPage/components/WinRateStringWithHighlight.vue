@@ -15,7 +15,6 @@ const percentString = computed(() => {
 });
 
 const highlightClassName = computed(() => {
-  console.log(winRate.getWinRate(props.winCount, props.loseCount));
   return (
     winRate.getWinRate(props.winCount, props.loseCount) > 0.6 && "excellent"
   );

@@ -1,16 +1,37 @@
 <script setup lang="ts">
 import Colors from "@/scripts/colors";
 import BorderRadius2Image from "@/components/BorderRadius2Image.vue";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import WinIconSlotDisabled from "@/assets/images/icon-slot-disabled-blue.png";
 import LoseIconSlotDisabled from "@/assets/images/icon-slot-disabled-red.png";
 import SquareImage from "@/components/SquareImage.vue";
 
 const props = defineProps<{
+  itemId: string;
   imageUrl: string;
   isWin: boolean;
   isDisabled: boolean;
 }>();
+
+const emit = defineEmits<{
+  (
+    e: "MouseOverItem",
+    event: { target: HTMLInputElement },
+    itemId: string
+  ): void;
+  (e: "MouseOutItem"): void;
+}>();
+
+const handleMouseOverImage = (
+  event: { target: HTMLInputElement },
+  itemId: string
+) => {
+  emit("MouseOverItem", event, itemId);
+};
+
+const handleMouseOutImage = () => {
+  emit("MouseOutItem");
+};
 
 const ItemImageWithEmptyFallback = computed(() => {
   if (props.isDisabled) {
@@ -33,16 +54,22 @@ const winClassName = computed(() => {
       v-if="ItemImageWithEmptyFallback"
       :image-url="ItemImageWithEmptyFallback"
       :size="22"
+      @mouseover="e => handleMouseOverImage(e, itemId)"
+      @mouseout="handleMouseOutImage"
     />
   </div>
 </template>
 
 <style scoped lang="scss">
 .slot {
-  overflow: hidden;
   width: 22px;
   height: 22px;
   border-radius: 2px;
+  position: relative;
+
+  & > img {
+    border-radius: 2px;
+  }
 }
 
 .slot.win {

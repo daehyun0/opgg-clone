@@ -17,7 +17,6 @@ let leagues = ref({});
 let matchSummary: any = ref({});
 
 opggSummnoerAPI.getSummoner("Hide on Bush").then(({ data }) => {
-  console.log(data);
   previousTiers.value = data.summoner.previousTiers
     .map((previousTier: any) => {
       return {
@@ -56,7 +55,6 @@ opggSummnoerAPI.getMatches("Hide On Bush").then(({ data }) => {
   matchSummary.value = {
     ...data,
   };
-  console.log(data);
 });
 </script>
 

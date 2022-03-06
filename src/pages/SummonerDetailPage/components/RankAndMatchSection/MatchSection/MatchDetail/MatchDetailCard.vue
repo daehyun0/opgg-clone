@@ -50,6 +50,15 @@ const props = withDefaults(
   }
 );
 
+const emit = defineEmits<{
+  (
+    e: "MouseOverItem",
+    event: { target: HTMLInputElement },
+    itemId: string
+  ): void;
+  (e: "MouseOutItem"): void;
+}>();
+
 const gameLengthString = computed(() => {
   return time.getDurationFromSecond(props.gameLength);
 });
@@ -62,7 +71,16 @@ const gamePlayedTimeString = computed(() => {
   return time.getAgoString(props.matchCreatedTime);
 });
 
-const itemsWithEmptySlot = computed(() => {
+const itemsWithEmptySlot = computed((): any[] => {
+  const getItemIdFromUrl = (url: string): string => {
+    if (!url) {
+      return "";
+    }
+
+    const imageFilename = url.split("/").slice(-1)[0];
+    return imageFilename.split(".")[0];
+  };
+
   const lastSlotIdx = 7;
   return props.items
     .concat([{}, {}, {}, {}, {}, {}, {}, {}])
@@ -72,9 +90,13 @@ const itemsWithEmptySlot = computed(() => {
         return {
           ...slot,
           isDisabled: true,
+          id: getItemIdFromUrl(slot.imageUrl),
         };
       }
-      return slot;
+      return {
+        ...slot,
+        id: getItemIdFromUrl(slot.imageUrl),
+      };
     });
 });
 
@@ -89,6 +111,17 @@ const wardImage = computed(() => {
 const ExpandImage = computed(() => {
   return props.isWin ? WinExpandImage : LoseExpandImage;
 });
+
+const handleMouseOverImage = (
+  event: { target: HTMLInputElement },
+  itemId: string
+) => {
+  emit("MouseOverItem", event, itemId);
+};
+
+const handleMouseOutImage = () => {
+  emit("MouseOutItem");
+};
 </script>
 
 <template>
@@ -175,10 +208,13 @@ const ExpandImage = computed(() => {
             :class="winClassName"
           >
             <ItemImage
+              :item-id="item.id"
               :image-url="item.imageUrl"
               :is-win="isWin"
               :is-disabled="item.isDisabled"
               :size="22"
+              @MouseOverItem="handleMouseOverImage"
+              @MouseOutItem="handleMouseOutImage"
             />
           </li>
         </ul>

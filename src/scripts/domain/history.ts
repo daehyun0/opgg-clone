@@ -3,7 +3,6 @@ const separator = ",";
 
 const getHistoryString = (): string => {
   const historyString = localStorage.getItem(storageKey);
-  console.log(historyString);
   if (historyString === null) {
     return "";
   }

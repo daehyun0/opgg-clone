@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import opggSummnoer from "@/scripts/api/opgg-summnoer";
 import MatchDetailCard from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchDetail/MatchDetailCard.vue";
-import { ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, reactive, ref } from "vue";
+import { useItemsStore } from "@/store/items";
+import Tooltip from "@/components/Tooltip.vue";
+
+const itemStore = useItemsStore();
 
 const matches = ref({});
 opggSummnoer.getMatches("Hide On Bush").then(async ({ data }) => {
@@ -34,6 +38,58 @@ opggSummnoer.getMatches("Hide On Bush").then(async ({ data }) => {
     };
   });
 });
+
+const hoverItemId = ref("");
+const hoverItemPosition = ref({ top: 0, center: 0 });
+
+const handleMouseOverItem = (
+  event: { target: HTMLInputElement },
+  itemId: string
+) => {
+  hoverItemId.value = itemId;
+  const { top, left, width } = event.target.getBoundingClientRect();
+  hoverItemPosition.value = {
+    top,
+    center: left + width / 2,
+  };
+};
+
+let prevScroll = {
+  x: window.scrollX,
+  y: window.scrollY,
+};
+let scrollListener = () => {
+  requestAnimationFrame(() => {
+    hoverItemPosition.value = {
+      top: hoverItemPosition.value.top - (window.scrollY - prevScroll.y),
+      center: hoverItemPosition.value.center - (window.scrollX - prevScroll.x),
+    };
+    prevScroll = {
+      x: window.scrollX,
+      y: window.scrollY,
+    };
+  });
+};
+
+onMounted(() => {
+  let prevScroll = {
+    x: window.scrollX,
+    y: window.scrollY,
+  };
+  window.addEventListener("scroll", scrollListener);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", scrollListener);
+});
+
+const handleMouseOutItem = () => {
+  hoverItemId.value = "";
+};
+
+const itemDesc = computed(() => {
+  return itemStore.getItemDesc(hoverItemId.value) || "";
+});
 </script>
 
 <template>
@@ -64,9 +120,19 @@ opggSummnoer.getMatches("Hide On Bush").then(async ({ data }) => {
         match.stats.general.contributionForKillRate
       "
       :vision-ward-bought="match.stats.ward.visionWardsBought"
-      :champion-name="레오나"
       :level="match.level"
+      @MouseOverItem="handleMouseOverItem"
+      @MouseOutItem="handleMouseOutItem"
     />
+
+    <Teleport to="#tooltip-overlay">
+      <Tooltip
+        :desc="itemDesc"
+        v-show="hoverItemId"
+        :top="hoverItemPosition.top"
+        :center="hoverItemPosition.center"
+      />
+    </Teleport>
   </div>
 </template>
 

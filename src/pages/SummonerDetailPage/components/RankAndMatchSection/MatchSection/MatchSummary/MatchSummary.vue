@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import MatchSummarySectionSummary from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummarySummarySection.vue";
-import MatchSummarySectionChampions from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryChampionsSection.vue";
-import MatchSummarySectionPositions from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryPositionsSection.vue";
+import MatchSummaryStatsSection from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryStatsSection.vue";
+import MatchSummaryChampionsSection from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryChampionsSection.vue";
+import MatchSummaryPositionsSection from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryPositionsSection.vue";
 import Colors from "@/scripts/colors";
 
 const props = defineProps<{
@@ -22,18 +22,18 @@ const props = defineProps<{
 
 <template>
   <div class="match-summary-root">
-    <MatchSummarySectionSummary
+    <MatchSummaryStatsSection
       class="summary"
       :raw-game-summary="matchSummary.summary"
     />
-    <MatchSummarySectionChampions
+    <MatchSummaryChampionsSection
       class="champions"
       :raw-champions="matchSummary.champions"
     />
-    <MatchSummarySectionPositions
+    <MatchSummaryPositionsSection
       class="positions"
       :raw-positions="matchSummary.positions"
-    ></MatchSummarySectionPositions>
+    ></MatchSummaryPositionsSection>
   </div>
 </template>
 

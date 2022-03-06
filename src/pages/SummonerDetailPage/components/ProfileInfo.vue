@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Colors from "@/scripts/colors";
-import RankFormatter from "@/scripts/rankFormatter";
+import RankFormatter from "@/scripts/utils/rankFormatter";
 import { computed } from "vue";
 
 const props = defineProps<{

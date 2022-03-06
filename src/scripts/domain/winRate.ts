@@ -1,4 +1,4 @@
-import rateFormatter from "@/scripts/rateFormatter";
+import rateFormatter from "@/scripts/utils/rateFormatter";
 
 export default {
   getTotalCount(winCount: number, loseCount: number) {

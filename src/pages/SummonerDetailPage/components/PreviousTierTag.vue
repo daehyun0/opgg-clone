@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Tag from "@/components/Tag.vue";
 import { computed, defineProps, PropType } from "vue";
-import getSeasonString from "@/scripts/getSeasonString";
+import getSeasonString from "@/scripts/domain/getSeasonString";
 
 const props = defineProps<{
   season: number;

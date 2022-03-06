@@ -18,36 +18,9 @@ import CircleImage from "@/components/CircleImage.vue";
 
 const props = withDefaults(
   defineProps<{
-    gameType: string;
-    matchCreatedTime: number;
-    isWin: boolean;
-    gameLength: number;
-    championImageUrl: string;
-    spellImageUrls: string[];
-    perkImageUrls: string[];
-    championName: string;
-    kill: number;
-    death: number;
-    assist: number;
-    largestMultiKillString: string;
-    opScoreBadge: string;
-    level: number;
-    cs: number;
-    csPerMinute: number;
-    contributionForKillRateString: string;
-    items: any[];
-    users: any[];
-    kdaRatioString: string;
-    visionWardBought: string;
+    match: any;
   }>(),
-  {
-    items: () => {
-      return [];
-    },
-    users: () => {
-      return [];
-    },
-  }
+  {}
 );
 
 const emit = defineEmits<{
@@ -60,15 +33,15 @@ const emit = defineEmits<{
 }>();
 
 const gameLengthString = computed(() => {
-  return time.getDurationFromSecond(props.gameLength);
+  return time.getDurationFromSecond(props.match.gameLength);
 });
 
 const gameResultString = computed(() => {
-  return getWinString(props.isWin);
+  return getWinString(props.match.isWin);
 });
 
 const gamePlayedTimeString = computed(() => {
-  return time.getAgoString(props.matchCreatedTime);
+  return time.getAgoString(props.match.createDate);
 });
 
 const itemsWithEmptySlot = computed((): any[] => {
@@ -82,7 +55,7 @@ const itemsWithEmptySlot = computed((): any[] => {
   };
 
   const lastSlotIdx = 7;
-  return props.items
+  return props.match.items
     .concat([{}, {}, {}, {}, {}, {}, {}, {}])
     .slice(0, 8)
     .map((slot: any, idx: number) => {
@@ -101,15 +74,15 @@ const itemsWithEmptySlot = computed((): any[] => {
 });
 
 const winClassName = computed(() => {
-  return props.isWin ? "win" : "lose";
+  return props.match.isWin ? "win" : "lose";
 });
 
 const wardImage = computed(() => {
-  return props.isWin ? WinWardImage : LoseWardImage;
+  return props.match.isWin ? WinWardImage : LoseWardImage;
 });
 
 const ExpandImage = computed(() => {
-  return props.isWin ? WinExpandImage : LoseExpandImage;
+  return props.match.isWin ? WinExpandImage : LoseExpandImage;
 });
 
 const handleMouseOverImage = (
@@ -128,7 +101,7 @@ const handleMouseOutImage = () => {
   <Card class="match-detail-card-root">
     <div class="match-summary" :class="winClassName">
       <div class="game-result">
-        <div class="game-type">{{ gameType }}</div>
+        <div class="game-type">{{ match.gameType }}</div>
         <div class="game-created-time">{{ gamePlayedTimeString }}</div>
         <divider class="divider" :class="winClassName"></divider>
         <div class="result">{{ gameResultString }}</div>
@@ -138,12 +111,12 @@ const handleMouseOutImage = () => {
         <div class="graphic">
           <CircleImage
             class="champion"
-            :image-url="championImageUrl"
+            :image-url="match.champion.imageUrl"
             :size="46"
           />
           <div class="spell">
             <SpellImage
-              v-for="spellImageUrl in spellImageUrls"
+              v-for="spellImageUrl in match.spells"
               :key="spellImageUrl.imageUrl"
               :image-url="spellImageUrl.imageUrl"
             />
@@ -151,53 +124,54 @@ const handleMouseOutImage = () => {
           <div class="perk">
             <PerkImage
               :image-url="perkImageUrl"
-              v-for="perkImageUrl in perkImageUrls"
+              v-for="perkImageUrl in match.peak"
               :key="perkImageUrl"
               :width="22"
               :height="22"
             ></PerkImage>
           </div>
         </div>
-        <div class="champion-name">{{ championName }}</div>
+        <div class="champion-name">레오나</div>
       </div>
       <div class="game-kda">
         <div class="kda">
-          <span class="kill">{{ kill }}</span>
+          <span class="kill">{{ match.stats.general.kill }}</span>
           <span> / </span>
-          <span class="death">{{ death }}</span>
+          <span class="death">{{ match.stats.general.death }}</span>
           <span> / </span>
-          <span class="assist">{{ assist }}</span>
+          <span class="assist">{{ match.stats.general.assist }}</span>
         </div>
 
         <div class="kda-average">
-          <span class="value">{{ kdaRatioString }}</span>
+          <span class="value">{{ match.stats.general.kdaString }}</span>
           <span> 평점</span>
         </div>
 
         <div class="badge">
           <KillMessageTag
             class="multikill-tag"
-            v-if="largestMultiKillString"
+            v-if="match.stats.general.largestMultiKillString"
             type="multikill"
-            :title="largestMultiKillString"
+            :title="match.stats.general.largestMultiKillString"
           />
           <KillMessageTag
             class="annihilation-tag"
-            v-if="opScoreBadge"
-            :title="opScoreBadge"
+            v-if="match.stats.general.opScoreBadge"
+            :title="match.stats.general.opScoreBadge"
             type="annihilation"
           />
         </div>
       </div>
+
       <div class="level-and-cs">
-        <div class="level">레벨{{ level }}</div>
+        <div class="level">레벨 {{ match.champion.level }}</div>
         <div class="cs">
-          <span class="cs">{{ cs }}</span>
-          <span class="cs-per-minute"> ({{ csPerMinute }})</span>
+          <span class="cs">{{ match.stats.general.cs }}</span>
+          <span class="cs-per-minute"> ({{ match.stats.general.csPerMin }})</span>
           <span> CS</span>
         </div>
         <div class="contribution-for-kill-rate">
-          킬관여 {{ contributionForKillRateString }}
+          킬관여 {{ match.stats.general.contributionForKillRate }}
         </div>
       </div>
       <div class="items-and-ward">
@@ -210,7 +184,7 @@ const handleMouseOutImage = () => {
             <ItemImage
               :item-id="item.id"
               :image-url="item.imageUrl"
-              :is-win="isWin"
+              :is-win="match.isWin"
               :is-disabled="item.isDisabled"
               :size="22"
               @MouseOverItem="handleMouseOverImage"
@@ -221,13 +195,13 @@ const handleMouseOutImage = () => {
         <div class="ward">
           <img class="symbol" :src="wardImage" />
           <span class="vision-ward-count"
-            >제어 와드 {{ visionWardBought }}</span
+            >제어 와드 {{ match.stats.ward.visionWardsBought }}</span
           >
         </div>
       </div>
       <div class="with-player">
         <ul class="users">
-          <li class="user" v-for="user in users">
+          <li class="user" v-for="user in match.users">
             <SquareImage :image-url="user.championImageUrl" :size="16" />
             <span>{{ user.summonerName }}</span>
           </li>

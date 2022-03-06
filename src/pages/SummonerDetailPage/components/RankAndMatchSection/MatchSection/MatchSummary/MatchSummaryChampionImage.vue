@@ -4,7 +4,7 @@ import IconNoChampion from "@/assets/images/icon-no-champion.png";
 import CircleImage from "@/components/CircleImage.vue";
 
 const props = defineProps<{
-  championImageUrl: string;
+  championImageUrl?: string;
 }>();
 
 const championImageWithFallback = computed(() => {

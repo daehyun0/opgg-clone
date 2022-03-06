@@ -1,30 +1,33 @@
 <script setup lang="ts">
-import { computed, defineProps } from "vue";
-import winRate from "@/scripts/domain/winRate";
+import { computed } from "vue";
 import kda from "@/scripts/domain/kda";
 import Colors from "@/scripts/colors";
 import MatchSummarySectionChampionImage from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryChampionImage.vue";
 import KdaRatioStringWithHighlight from "@/pages/SummonerDetailPage/components/KdaRatioStringWithHighlight.vue";
 import WinRateStringWithHighlight from "@/pages/SummonerDetailPage/components/WinRateStringWithHighlight.vue";
+import { useSummonerDetailPageStore } from "@/store/summonerDetailPageStore";
 
-const props = defineProps<{
-  rawChampions: any[];
-}>();
+const summonerDetailPageStore = useSummonerDetailPageStore();
 
 const champions = computed(() => {
-  return props.rawChampions
-    ?.map((champion: any) => {
+  return summonerDetailPageStore.matchSummary.champions;
+});
+
+const mappedChampions = computed(() => {
+  return champions.value
+    .map((champion: any) => {
       return {
         ...champion,
         isExist: true,
-        kdaAverage: kda.getKdaAverage(
-          champion.kills,
-          champion.deaths,
-          champion.assists
+        kdaAverage: Number(
+          kda.getKdaAverage(champion.kills, champion.deaths, champion.assists)
         ),
       };
     })
     .concat([
+      {
+        isExist: false,
+      },
       {
         isExist: false,
       },
@@ -38,7 +41,11 @@ const champions = computed(() => {
 
 <template>
   <div class="match-summary-section-champions-root">
-    <div class="champion" v-for="champion in champions" :key="champion.key">
+    <div
+      class="champion"
+      v-for="champion in mappedChampions"
+      :key="champion.key"
+    >
       <MatchSummarySectionChampionImage
         class="champion-image"
         :champion-image-url="champion.imageUrl"
@@ -54,8 +61,8 @@ const champions = computed(() => {
               append-string="%"
             />
           </span>
-          <span class="win-lose-count"
-            > ({{ champion.wins }}승 {{ champion.losses }}패)</span
+          <span class="win-lose-count">
+            ({{ champion.wins }}승 {{ champion.losses }}패)</span
           >
           |
           <KdaRatioStringWithHighlight

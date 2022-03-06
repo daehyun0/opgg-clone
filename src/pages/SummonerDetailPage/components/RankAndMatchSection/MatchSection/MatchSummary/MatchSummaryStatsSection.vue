@@ -1,30 +1,38 @@
 <script setup lang="ts">
-import { computed, defineProps } from "vue";
+import { computed, ComputedRef } from "vue";
 import kda from "@/scripts/domain/kda";
 import Colors from "@/scripts/colors";
 import MatchSummaryGraph from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryGraph.vue";
 import KdaRatioStringWithHighlight from "@/pages/SummonerDetailPage/components/KdaRatioStringWithHighlight.vue";
+import { useSummonerDetailPageStore } from "@/store/summonerDetailPageStore";
 
-const props = defineProps<{
-  rawGameSummary: any;
-}>();
+const summonerDetailPageStore = useSummonerDetailPageStore();
+const gameSummary: ComputedRef<{
+  wins: number;
+  losses: number;
+  kills: number;
+  deaths: number;
+  assists: number;
+}> = computed(() => summonerDetailPageStore.matchSummary.summary);
 
-const lastGamesSummary = computed(() => {
-  if (!props.rawGameSummary) {
+const gameSummaryMapped = computed(() => {
+  if (!gameSummary) {
     return {};
   }
 
   return {
-    winCount: props.rawGameSummary.wins,
-    loseCount: props.rawGameSummary.losses,
-    matchCount: props.rawGameSummary.wins + props.rawGameSummary.losses,
-    kills: kda.getKdaSingleFormatted(props.rawGameSummary.kills),
-    deaths: kda.getKdaSingleFormatted(props.rawGameSummary.deaths),
-    assists: kda.getKdaSingleFormatted(props.rawGameSummary.assists),
-    kdaAverage: kda.getKdaAverage(
-      props.rawGameSummary.kills,
-      props.rawGameSummary.deaths,
-      props.rawGameSummary.assists
+    winCount: gameSummary.value.wins,
+    loseCount: gameSummary.value.losses,
+    matchCount: gameSummary.value.wins + gameSummary.value.losses,
+    kills: kda.getKdaSingleFormatted(gameSummary.value.kills),
+    deaths: kda.getKdaSingleFormatted(gameSummary.value.deaths),
+    assists: kda.getKdaSingleFormatted(gameSummary.value.assists),
+    kdaAverage: Number(
+      kda.getKdaAverage(
+        gameSummary.value.kills,
+        gameSummary.value.deaths,
+        gameSummary.value.assists
+      )
     ),
   };
 });
@@ -33,28 +41,28 @@ const lastGamesSummary = computed(() => {
 <template>
   <div class="match-summary-section-summary-root">
     <div class="win-count">
-      {{ lastGamesSummary.matchCount }}전 {{ lastGamesSummary.winCount }}승
-      {{ lastGamesSummary.loseCount }}패
+      {{ gameSummaryMapped.matchCount }}전 {{ gameSummaryMapped.winCount }}승
+      {{ gameSummaryMapped.loseCount }}패
     </div>
     <div class="info">
       <div class="graph">
         <MatchSummaryGraph
-          :win-count="lastGamesSummary.winCount"
-          :lose-count="lastGamesSummary.loseCount"
+          :win-count="gameSummaryMapped.winCount"
+          :lose-count="gameSummaryMapped.loseCount"
         ></MatchSummaryGraph>
       </div>
       <div class="kda">
         <div class="value">
-          <span class="kill">{{ lastGamesSummary.kills }}</span>
+          <span class="kill">{{ gameSummaryMapped.kills }}</span>
           /
-          <span class="death">{{ lastGamesSummary.deaths }}</span>
+          <span class="death">{{ gameSummaryMapped.deaths }}</span>
           /
-          <span class="assist">{{ lastGamesSummary.assists }}</span>
+          <span class="assist">{{ gameSummaryMapped.assists }}</span>
         </div>
         <div class="average">
           <KdaRatioStringWithHighlight
             class="value"
-            :value="lastGamesSummary.kdaAverage"
+            :value="gameSummaryMapped.kdaAverage"
             append-string=":1"
           />
           <span class="percent"></span>

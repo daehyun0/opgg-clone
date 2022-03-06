@@ -1,33 +1,16 @@
 <script setup lang="ts">
 import Colors from "@/scripts/colors";
 import Tabs from "@/components/Tab.vue";
-import { computed, defineProps, ref } from "vue";
+import { computed, ref } from "vue";
 import ChampionWinRateTable from "@/pages/SummonerDetailPage/components/RankAndMatchSection/RankSection/ChampionWinRateTable.vue";
 import WeeklyRankWinRateTable from "@/pages/SummonerDetailPage/components/RankAndMatchSection/RankSection/WeeklyRankWinRateTable.vue";
-import opggSummnoer from "@/scripts/api/opgg-summnoer";
+import { useSummonerDetailPageStore } from "@/store/summonerDetailPageStore";
 
-const props = withDefaults(
-  defineProps<{
-    mostChampionWinRateInfo: Array<{
-      championName: string;
-      cs: number;
-      csPerMinute: number;
-      winCount: number;
-      loseCount: number;
-      kill: number;
-      death: number;
-      assist: number;
-      championImageUrl: string;
-    }>;
-  }>(),
-  {
-    mostChampionWinRateInfo: () => [],
-  }
-);
+const summonerDetailPageStore = useSummonerDetailPageStore();
 
 let tabKey = ref("most-champion");
-let champions = ref([]);
-let recentWinRates = ref([]);
+let champions = computed(() => summonerDetailPageStore.champions);
+let recentWinRates = computed(() => summonerDetailPageStore.recentWinRates);
 
 const isTabChampionWinRate = computed(() => tabKey.value === "most-champion");
 const isTabWeeklyRankWinRate = computed(() => tabKey.value === "weekly-rank");
@@ -35,32 +18,6 @@ const isTabWeeklyRankWinRate = computed(() => tabKey.value === "weekly-rank");
 const handleChangeTab = (newTabKey: string) => {
   tabKey.value = newTabKey;
 };
-
-opggSummnoer.getMostInfo("Hide On Bush").then(({ data }) => {
-  champions.value = data.champions.map((champion: any) => {
-    return {
-      championName: champion.name,
-      cs: champion.cs,
-      csPerMinute: champion.cs,
-      winCount: champion.wins,
-      loseCount: champion.losses,
-      kill: champion.kills,
-      death: champion.deaths,
-      assist: champion.assists,
-      championImageUrl: champion.imageUrl,
-    };
-  });
-  recentWinRates.value = data.recentWinRate.map(
-    (recentWinRateChampion: any) => {
-      return {
-        championName: recentWinRateChampion.name,
-        championImageUrl: recentWinRateChampion.imageUrl,
-        winCount: recentWinRateChampion.wins,
-        loseCount: recentWinRateChampion.losses,
-      };
-    }
-  );
-});
 </script>
 
 <template>

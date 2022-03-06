@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import Tab from "@/components/Tab.vue";
 import Colors from "@/scripts/colors";
-import { computed, defineProps, ref } from "vue";
+import { computed, ref } from "vue";
+import { useSummonerDetailPageStore } from "@/store/summonerDetailPageStore";
 
-const props = defineProps<{
-  games: any[];
-}>();
+const summonerDetailPageStore = useSummonerDetailPageStore();
+const games = computed(() => summonerDetailPageStore.matchSummary?.games || []);
 
 const emit = defineEmits<{
   (e: "select", target: string): void;
@@ -25,7 +25,7 @@ const gameTypeOrder: { [key: string]: number } = {
 };
 
 const uniqueGameTypes = computed(() => {
-  return props?.games
+  return games.value
     ?.map((game: any) => game.gameType)
     ?.filter((game: any, index: number, self: string[]) => {
       return self.indexOf(game) === index;

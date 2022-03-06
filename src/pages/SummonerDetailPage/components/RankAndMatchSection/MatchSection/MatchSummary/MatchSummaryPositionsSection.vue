@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, defineProps } from "vue";
+import { computed } from "vue";
 import positionService from "@/scripts/domain/position";
 import winRate from "@/scripts/domain/winRate";
 import Colors from "@/scripts/colors";
@@ -9,20 +9,22 @@ import IconAdc from "@/assets/images/icon-mostposition-adc.png";
 import IconMid from "@/assets/images/icon-mostposition-mid.png";
 import IconSup from "@/assets/images/icon-mostposition-sup.png";
 import IconJng from "@/assets/images/icon-mostposition-jng.png";
+import { useSummonerDetailPageStore } from "@/store/summonerDetailPageStore";
 
-const props = defineProps<{
-  rawPositions: Array<any>;
-}>();
+const summonerDetailPageStore = useSummonerDetailPageStore();
+const positions = computed(
+  () => summonerDetailPageStore.matchSummary.positions
+);
 
-const positions = computed(() => {
-  const totalGameCount = props.rawPositions?.reduce(
+const mappedPositions = computed(() => {
+  const totalGameCount = positions.value?.reduce(
     (acc: number, elem: any) => {
       return acc + elem.games;
     },
     0
   );
 
-  return props.rawPositions?.map((position: any) => {
+  return positions.value?.map((position: any) => {
     return {
       ...position,
       selectRatePercent: positionService.getSelectRatePercent(
@@ -49,7 +51,7 @@ const positionImage = {
     <div class="desc">선호 포지션 (랭크)</div>
     <div
       class="prefer-position"
-      v-for="position in positions"
+      v-for="position in mappedPositions"
       :key="position.position"
     >
       <img :src="positionImage[position.positionName]" class="position-icon" />

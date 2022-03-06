@@ -1,21 +1,14 @@
 <script setup lang="ts">
 import StyleConstants from "@/scripts/styleConstants";
 import PreviousTierTag from "@/pages/SummonerDetailPage/components/ProfileSection/PreviousTierTag.vue";
-import { defineProps } from "vue";
 import ProfileWithInfo from "@/pages/SummonerDetailPage/components/ProfileSection/ProfileWithInfo.vue";
+import { useSummonerDetailPageStore } from "@/store/summonerDetailPageStore";
+import { computed } from "vue";
 
-defineProps<{
-  tags: Array<{
-    season: Number;
-    tier: String;
-  }>;
-  profileBorderImageUrl: string;
-  profileImageUrl: string;
-  level: number;
-  nickname: string;
-  rank: number;
-  rankPercentOfTop: number;
-}>();
+const summonerDetailPageStore = useSummonerDetailPageStore();
+
+const tags = computed(() => summonerDetailPageStore.previousTiers);
+const profile = computed(() => summonerDetailPageStore.profile);
 </script>
 
 <template>
@@ -31,12 +24,12 @@ defineProps<{
     </section>
     <section class="profile">
       <ProfileWithInfo
-        :nickname="nickname"
-        :level="level"
-        :profile-border-image-url="profileBorderImageUrl"
-        :profile-image-url="profileImageUrl"
-        :rank="rank"
-        :rank-percent-of-top="rankPercentOfTop"
+        :nickname="profile.nickname"
+        :level="profile.level"
+        :profile-border-image-url="profile.profileBorderImageUrl"
+        :profile-image-url="profile.profileImageUrl"
+        :rank="profile.rank"
+        :rank-percent-of-top="profile.rankPercentOfTop"
       />
     </section>
   </section>

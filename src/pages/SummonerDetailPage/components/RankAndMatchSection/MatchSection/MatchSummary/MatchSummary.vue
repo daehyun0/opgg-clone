@@ -3,36 +3,21 @@ import MatchSummaryStatsSection from "@/pages/SummonerDetailPage/components/Rank
 import MatchSummaryChampionsSection from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryChampionsSection.vue";
 import MatchSummaryPositionsSection from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryPositionsSection.vue";
 import Colors from "@/scripts/colors";
+import { useSummonerDetailPageStore } from "@/store/summonerDetailPageStore";
+import { computed } from "vue";
 
-const props = defineProps<{
-  matchSummary: {
-    games: any[];
-    champions: any[];
-    positions: any[];
-    summary: {
-      wins: number;
-      losses: number;
-      kills: number;
-      deaths: number;
-      assists: number;
-    };
-  };
-}>();
+const summonerDetailPageStore = useSummonerDetailPageStore();
+const matchSummary = computed(() => summonerDetailPageStore.matchSummary);
 </script>
 
 <template>
   <div class="match-summary-root">
-    <MatchSummaryStatsSection
-      class="summary"
-      :raw-game-summary="matchSummary.summary"
-    />
+    <MatchSummaryStatsSection class="summary" />
     <MatchSummaryChampionsSection
       class="champions"
-      :raw-champions="matchSummary.champions"
     />
     <MatchSummaryPositionsSection
       class="positions"
-      :raw-positions="matchSummary.positions"
     ></MatchSummaryPositionsSection>
   </div>
 </template>

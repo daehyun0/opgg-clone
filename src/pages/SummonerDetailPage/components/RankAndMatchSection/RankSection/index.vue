@@ -2,19 +2,12 @@
 import Card from "@/components/Card.vue";
 import RankCard from "@/pages/SummonerDetailPage/components/RankAndMatchSection/RankSection/RankCard.vue";
 import WinRateTables from "@/pages/SummonerDetailPage/components/RankAndMatchSection/RankSection/WinRateTables.vue";
+import { useSummonerDetailPageStore } from "@/store/summonerDetailPageStore";
+import { computed } from "vue";
 
-defineProps<{
-  leagues: Array<{
-    hasResults: boolean;
-    tierImageUrl: string;
-    rankType: string;
-    tier: string;
-    division: string;
-    tierRankPoint: number;
-    winCount: number;
-    loseCount: number;
-  }>;
-}>();
+const summonerDetailPageStore = useSummonerDetailPageStore();
+
+const leagues = computed(() => summonerDetailPageStore.$state.leagues);
 </script>
 
 <template>
@@ -33,7 +26,7 @@ defineProps<{
       :lose-count="league.loseCount"
     ></RankCard>
 
-    <WinRateTables class="win-rate-table" />
+    <WinRateTables class="win-rate-table"/>
   </section>
 </template>
 

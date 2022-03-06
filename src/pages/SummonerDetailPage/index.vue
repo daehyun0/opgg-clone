@@ -1,77 +1,31 @@
 <script setup lang="ts">
 import NavigationSection from "@/pages/components/NavigationSection/index.vue";
-import opggSummnoerAPI from "@/scripts/api/opgg-summnoer";
 import { ref } from "vue";
 import ProfileSection from "@/pages/SummonerDetailPage/components/ProfileSection/index.vue";
 import Divider from "@/components/Divider.vue";
 import RankAndMatchSection from "@/pages/SummonerDetailPage/components/RankAndMatchSection/index.vue";
 import { useRoute } from "vue-router";
 import History from "@/scripts/domain/history";
+import { useSummonerDetailPageStore } from "@/store/summonerDetailPageStore";
 
 const route = useRoute();
-History.addHistory(route.params.summonerName);
+const summonerName: string = route.params.summonerName as string;
+History.addHistory(summonerName);
 
-let previousTiers = ref(null);
-let profile = ref({});
-let leagues = ref({});
-let matchSummary: any = ref({});
+const summonerDetailPageStore = useSummonerDetailPageStore();
+summonerDetailPageStore.$reset();
 
-opggSummnoerAPI.getSummoner("Hide on Bush").then(({ data }) => {
-  previousTiers.value = data.summoner.previousTiers
-    .map((previousTier: any) => {
-      return {
-        season: previousTier.season,
-        tier: previousTier.tier,
-      };
-    })
-    .sort((a: any, b: any) => {
-      return a.season - b.season;
-    });
-
-  profile.value = {
-    nickname: data.summoner.name,
-    level: data.summoner.level,
-    profileBorderImageUrl: data.summoner.profileBorderImageUrl,
-    profileImageUrl: data.summoner.profileImageUrl,
-    rank: data.summoner.ladderRank.rank,
-    rankPercentOfTop: data.summoner.ladderRank.rankPercentOfTop,
-  };
-
-  leagues.value = data.summoner.leagues.map((league: any) => {
-    return {
-      hasResults: league?.hasResults,
-      tierImageUrl: league?.tierRank?.imageUrl,
-      rankType: league?.tierRank?.name,
-      tier: league?.tierRank?.tier,
-      division: league?.tierRank?.division,
-      tierRankPoint: league?.tierRank?.tierRankPoint,
-      winCount: league?.wins,
-      loseCount: league?.losses,
-    };
-  });
-});
-
-opggSummnoerAPI.getMatches("Hide On Bush").then(({ data }) => {
-  matchSummary.value = {
-    ...data,
-  };
-});
+summonerDetailPageStore.fetchMatches(summonerName);
+summonerDetailPageStore.fetchMostInfo(summonerName);
+summonerDetailPageStore.fetchSummoners(summonerName);
 </script>
 
 <template>
   <NavigationSection />
-  <ProfileSection
-    :tags="previousTiers"
-    :nickname="profile.nickname"
-    :level="profile.level"
-    :profile-border-image-url="profile.profileBorderImageUrl"
-    :profile-image-url="profile.profileImageUrl"
-    :rank="profile.rank"
-    :rank-percent-of-top="profile.rankPercentOfTop"
-  />
+  <ProfileSection/>
   <Divider></Divider>
 
-  <RankAndMatchSection :leagues="leagues" :match-summary="matchSummary" />
+  <RankAndMatchSection/>
 </template>
 
 <style scoped></style>

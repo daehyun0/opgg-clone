@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, defineProps } from "vue";
 import kda from "@/scripts/domain/kda";
-import DoughnutChart from "@/components/common/DoughnutChart.vue";
 import Colors from "@/scripts/colors";
+import MatchSummaryGraph from "@/pages/SummonerDetailPage/components/MatchSummaryGraph.vue";
 
 const props = defineProps<{
   rawGameSummary: any;
@@ -17,11 +17,6 @@ const lastGamesSummary = computed(() => {
     winCount: props.rawGameSummary.wins,
     loseCount: props.rawGameSummary.losses,
     matchCount: props.rawGameSummary.wins + props.rawGameSummary.losses,
-    winRateString:
-      (props.rawGameSummary.wins /
-        (props.rawGameSummary.wins + props.rawGameSummary.losses)) *
-        100 +
-      "%",
     kills: kda.getKdaSingleFormatted(props.rawGameSummary.kills),
     deaths: kda.getKdaSingleFormatted(props.rawGameSummary.deaths),
     assists: kda.getKdaSingleFormatted(props.rawGameSummary.assists),
@@ -42,22 +37,10 @@ const lastGamesSummary = computed(() => {
     </div>
     <div class="info">
       <div class="graph">
-        <DoughnutChart
-          :width="90"
-          :height="90"
-          :stroke-width="10"
-          :text="lastGamesSummary.winRateString"
-          :strokes="[
-            {
-              color: 'blue',
-              ratio: lastGamesSummary.winCount,
-            },
-            {
-              color: 'red',
-              ratio: lastGamesSummary.loseCount,
-            },
-          ]"
-        />
+        <MatchSummaryGraph
+          :win-count="lastGamesSummary.winCount"
+          :lose-count="lastGamesSummary.loseCount"
+        ></MatchSummaryGraph>
       </div>
       <div class="kda">
         <div class="value">

@@ -43,11 +43,6 @@ const winClassName = computed(() => {
   width: 22px;
   height: 22px;
   border-radius: 2px;
-
-  & > img {
-    width: 100%;
-    height: 100%;
-  }
 }
 
 .slot.win {

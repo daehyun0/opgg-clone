@@ -99,6 +99,10 @@ const lastGamesSummary = computed(() => {
         text-align: center;
         font-size: 16px;
         color: v-bind("Colors.greyishBrown");
+
+        & > .value {
+          font-weight: bold;
+        }
       }
 
       & > .value + .average {

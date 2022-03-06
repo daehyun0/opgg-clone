@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import IconNoChampion from "@/assets/icon-no-champion.png";
+import IconNoChampion from "@/assets/images/icon-no-champion.png";
 import CircleImage from "@/components/CircleImage.vue";
 
 const props = defineProps<{

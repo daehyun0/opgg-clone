@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Colors from "@/scripts/colors";
-import IconHistoryRemove from "@/assets/icon-history-delete.png";
+import IconHistoryRemove from "@/assets/images/icon-history-delete.png";
 import { defineEmits } from "vue";
 
 defineProps<{

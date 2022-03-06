@@ -2,8 +2,8 @@
 import Colors from "@/scripts/colors";
 import BorderRadius2Image from "@/components/BorderRadius2Image.vue";
 import { computed } from "vue";
-import WinIconSlotDisabled from "@/assets/icon-slot-disabled-blue.png";
-import LoseIconSlotDisabled from "@/assets/icon-slot-disabled-red.png";
+import WinIconSlotDisabled from "@/assets/images/icon-slot-disabled-blue.png";
+import LoseIconSlotDisabled from "@/assets/images/icon-slot-disabled-red.png";
 import SquareImage from "@/components/SquareImage.vue";
 
 const props = defineProps<{

@@ -8,11 +8,11 @@ import getWinString from "@/scripts/domain/getWinString";
 import SpellImage from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchDetail/MatchDetailCardSpellImage.vue";
 import PerkImage from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchDetail/MatchDetailPerkImage.vue";
 import ItemImage from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchDetail/MatchDetailItemImage.vue";
-import WinWardImage from "@/assets/icon-ward-blue.png";
-import LoseWardImage from "@/assets/icon-ward-red.png";
+import WinWardImage from "@/assets/images/icon-ward-blue.png";
+import LoseWardImage from "@/assets/images/icon-ward-red.png";
 import KillMessageTag from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchDetail/KillMessageTag.vue";
-import WinExpandImage from "@/assets/icon-viewdetail-blue.png";
-import LoseExpandImage from "@/assets/icon-viewdetail-red.png";
+import WinExpandImage from "@/assets/images/icon-viewdetail-blue.png";
+import LoseExpandImage from "@/assets/images/icon-viewdetail-red.png";
 import SquareImage from "@/components/SquareImage.vue";
 import CircleImage from "@/components/CircleImage.vue";
 

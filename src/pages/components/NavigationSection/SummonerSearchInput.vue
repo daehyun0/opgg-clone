@@ -44,7 +44,7 @@ const handleInputSummonerNameInput = (e: { target: HTMLInputElement }) => {
         @input="handleInputSummonerNameInput"
       />
       <button class="search">
-        <img src="~@/assets/icon-gg.svg" alt="gg-logo" />
+        <img src="~@/assets/images/icon-gg.svg" alt="gg-logo" />
       </button>
     </div>
 

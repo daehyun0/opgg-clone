@@ -19,7 +19,7 @@ const props = defineProps<{
   width: 44px;
   height: 24px;
   @include flexRow(center, center);
-  background: 100% 100% url("@/assets/bg-levelbox.png") no-repeat;
+  background: 100% 100% url("@/assets/images/bg-levelbox.png") no-repeat;
   color: v-bind("Colors.dullYellow");
   font-size: 14px;
 }

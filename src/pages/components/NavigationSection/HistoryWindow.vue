@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import History from "@/scripts/domain/history";
-import ItemHistoryInfo from "@/assets/icon-history-info.png";
+import ItemHistoryInfo from "@/assets/images/icon-history-info.png";
 import Colors from "@/scripts/colors";
 import { computed, ref } from "vue";
 import { useRouter } from "vue-router";

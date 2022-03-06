@@ -4,11 +4,11 @@ import positionService from "@/scripts/domain/position";
 import winRate from "@/scripts/domain/winRate";
 import Colors from "@/scripts/colors";
 
-import IconTop from "@/assets/icon-mostposition-top.png";
-import IconAdc from "@/assets/icon-mostposition-adc.png";
-import IconMid from "@/assets/icon-mostposition-mid.png";
-import IconSup from "@/assets/icon-mostposition-sup.png";
-import IconJng from "@/assets/icon-mostposition-jng.png";
+import IconTop from "@/assets/images/icon-mostposition-top.png";
+import IconAdc from "@/assets/images/icon-mostposition-adc.png";
+import IconMid from "@/assets/images/icon-mostposition-mid.png";
+import IconSup from "@/assets/images/icon-mostposition-sup.png";
+import IconJng from "@/assets/images/icon-mostposition-jng.png";
 
 const props = defineProps<{
   rawPositions: Array<any>;

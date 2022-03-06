@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Colors from "@/scripts/colors";
 import RankFormatter from "@/scripts/rankFormatter";
-import {computed} from "vue";
+import { computed } from "vue";
 
 const props = defineProps<{
   nickname: string;
@@ -9,8 +9,12 @@ const props = defineProps<{
   rankPercentOfTop: number;
 }>();
 
-const formattedRank = computed(() => RankFormatter.getRankDecimalFormat(props.rank));
-const formattedRankPercentOfTop = computed(() => RankFormatter.getRankPercentOfTopDecimalFormat(props.rankPercentOfTop));
+const formattedRank = computed(() =>
+  RankFormatter.getRankDecimalFormat(props.rank)
+);
+const formattedRankPercentOfTop = computed(() =>
+  RankFormatter.getRankPercentOfTopDecimalFormat(props.rankPercentOfTop)
+);
 </script>
 
 <template>
@@ -41,7 +45,7 @@ const formattedRankPercentOfTop = computed(() => RankFormatter.getRankPercentOfT
   & > .rank {
     font-size: 11px;
     letter-spacing: -0.42px;
-    color: v-bind('Colors.slateGray');
+    color: v-bind("Colors.slateGray");
 
     & > .highlight {
       font-weight: bold;

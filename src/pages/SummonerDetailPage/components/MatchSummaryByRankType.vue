@@ -2,7 +2,7 @@
 import Colors from "@/scripts/colors";
 import MatchSummaryTab from "@/pages/SummonerDetailPage/components/MatchSummaryTab.vue";
 import MatchSummary from "@/pages/SummonerDetailPage/components/MatchSummary.vue";
-import {computed} from "vue";
+import { computed } from "vue";
 
 const props = defineProps<{
   matchSummary: {
@@ -12,7 +12,6 @@ const props = defineProps<{
     summary: any;
   };
 }>();
-
 </script>
 
 <template>

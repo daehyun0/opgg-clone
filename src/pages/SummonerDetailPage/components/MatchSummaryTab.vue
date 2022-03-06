@@ -26,14 +26,14 @@ const gameTypeOrder: { [key: string]: number } = {
 
 const uniqueGameTypes = computed(() => {
   return props?.games
-      ?.map((game: any) => game.gameType)
-      ?.filter((game: any, index: number, self: string[]) => {
-        return self.indexOf(game) === index;
-      })
-      ?.concat("전체")
-      ?.sort((a: string, b: string) => {
-        return gameTypeOrder[a] - gameTypeOrder[b];
-      });
+    ?.map((game: any) => game.gameType)
+    ?.filter((game: any, index: number, self: string[]) => {
+      return self.indexOf(game) === index;
+    })
+    ?.concat("전체")
+    ?.sort((a: string, b: string) => {
+      return gameTypeOrder[a] - gameTypeOrder[b];
+    });
 });
 
 const optionsFormatted = computed(() => {
@@ -59,13 +59,13 @@ const optionsFormatted = computed(() => {
 <style scoped lang="scss">
 .tabs {
   padding: 0 16px;
-  background-color: v-bind('Colors.whiteFour');
-  border-bottom: solid 1px v-bind('Colors.silverThree');
+  background-color: v-bind("Colors.whiteFour");
+  border-bottom: solid 1px v-bind("Colors.silverThree");
 
   &:deep > input + label {
     padding: 12px 0 10px;
     font-size: 12px;
-    color: v-bind('Colors.greyishBrown')
+    color: v-bind("Colors.greyishBrown");
   }
 
   &:deep > input:checked + label {

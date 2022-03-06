@@ -13,10 +13,7 @@ const championImageWithFallback = computed(() => {
 </script>
 
 <template>
-  <CircleImage
-    :size="34"
-    :image-url="championImageWithFallback"
-  />
+  <CircleImage :size="34" :image-url="championImageWithFallback" />
 </template>
 
 <style scoped></style>

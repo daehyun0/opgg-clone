@@ -5,14 +5,14 @@ defineProps<{
   profileBorderImageUrl: string;
   profileImageUrl: string;
   level: number;
-}>()
+}>();
 </script>
 
 <template>
   <div class="profile-root">
-    <img class="profile" :src="profileImageUrl">
-    <img class="profile-border" :Src="profileBorderImageUrl">
-    <LevelBox class="level-box" :level="level"/>
+    <img class="profile" :src="profileImageUrl" />
+    <img class="profile-border" :Src="profileBorderImageUrl" />
+    <LevelBox class="level-box" :level="level" />
   </div>
 </template>
 

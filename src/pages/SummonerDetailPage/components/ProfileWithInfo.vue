@@ -15,13 +15,13 @@ defineProps<{
 <template>
   <section class="profile-with-info-root">
     <Profile
-        class="profile"
+      class="profile"
       :profileBorderImageUrl="profileBorderImageUrl"
       :profileImageUrl="profileImageUrl"
       :level="level"
     ></Profile>
     <ProfileInfo
-        class="info"
+      class="info"
       :nickname="nickname"
       :rank="rank"
       :rank-percent-of-top="rankPercentOfTop"
@@ -30,7 +30,7 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-@import '@/styles/mixins.scss';
+@import "@/styles/mixins.scss";
 
 .profile-with-info-root {
   @include flexRow(flex-start, flex-start);

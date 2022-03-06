@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import SummonerDetailPage from "@/pages/SummonerDetailPage/index.vue";</script>
+import SummonerDetailPage from "@/pages/SummonerDetailPage/index.vue";
+</script>
 
 <template>
-  <SummonerDetailPage/>
+  <SummonerDetailPage />
 </template>

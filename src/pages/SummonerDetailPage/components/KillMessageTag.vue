@@ -27,7 +27,7 @@ withDefaults(
 .kill-message-tag-root {
   border-radius: 9px;
   padding: 3px 5px;
-  line-height: 1.0;
+  line-height: 1;
   color: v-bind("Colors.whiteTwo");
 }
 

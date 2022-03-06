@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Colors from "@/scripts/colors";
-import {computed} from "vue";
+import { computed } from "vue";
 import WinRate from "@/scripts/domain/winRate";
 import kda from "@/scripts/domain/kda";
 import cs from "@/scripts/domain/cs";
@@ -17,39 +17,58 @@ const props = defineProps<{
     death: number;
     assist: number;
     championImageUrl: string;
-  }>
+  }>;
 }>();
 
 const mostChampionsInfos = computed(() => {
   return props.mostChampionWinRateInfos.map((mostChampion: any) => {
     return {
       ...mostChampion,
-      winRate: WinRate.getWinRateFormatted(mostChampion.winCount, mostChampion.loseCount),
-      kda: kda.getKdaAverage(mostChampion.kill, mostChampion.death, mostChampion.assist),
-      totalMatchCount: WinRate.getTotalCount(mostChampion.winCount, mostChampion.loseCount),
+      winRate: WinRate.getWinRateFormatted(
+        mostChampion.winCount,
+        mostChampion.loseCount
+      ),
+      kda: kda.getKdaAverage(
+        mostChampion.kill,
+        mostChampion.death,
+        mostChampion.assist
+      ),
+      totalMatchCount: WinRate.getTotalCount(
+        mostChampion.winCount,
+        mostChampion.loseCount
+      ),
       cs: cs.getCreepScoreFormatted(mostChampion.cs),
-      csPerMinute: cs.getCreepScoreFormatted(mostChampion.csPerMinute)
+      csPerMinute: cs.getCreepScoreFormatted(mostChampion.csPerMinute),
     };
   });
 });
 </script>
 
 <template>
-  <div class="champion-win-rate-table" v-for="mostChampionInfo in mostChampionsInfos">
+  <div
+    class="champion-win-rate-table"
+    v-for="mostChampionInfo in mostChampionsInfos"
+  >
     <img class="champion-image" :src="mostChampionInfo.championImageUrl" />
     <div class="info">
       <div class="col-1">
-        <div class="champion-name main">{{ mostChampionInfo.championName }}</div>
+        <div class="champion-name main">
+          {{ mostChampionInfo.championName }}
+        </div>
         <div class="cs sub">
           <span class="cs">CS {{ mostChampionInfo.cs }}</span
           >&nbsp;<span class="cs-per-minute"
-        >({{ mostChampionInfo.csPerMinute }})</span
-        >
+            >({{ mostChampionInfo.csPerMinute }})</span
+          >
         </div>
       </div>
       <div class="col-2">
         <div class="kda main">
-          <KdaRatioStringWithHighlight :value="mostChampionInfo.kda" append-string=":1 평점"/></div>
+          <KdaRatioStringWithHighlight
+            :value="mostChampionInfo.kda"
+            append-string=":1 평점"
+          />
+        </div>
         <div class="kda-individual sub">
           {{ mostChampionInfo.kill }} / {{ mostChampionInfo.death }} /
           {{ mostChampionInfo.assist }}
@@ -66,7 +85,7 @@ const mostChampionsInfos = computed(() => {
 </template>
 
 <style scoped lang="scss">
-@import '@/styles/mixins.scss';
+@import "@/styles/mixins.scss";
 
 .champion-win-rate-table {
   @include flexRow(flex-start, center);
@@ -82,17 +101,19 @@ const mostChampionsInfos = computed(() => {
     flex: 0 1 100%;
     @include flexRow(space-between, center);
 
-    & > .col-1, & > .col-2, & > .col-3 {
+    & > .col-1,
+    & > .col-2,
+    & > .col-3 {
       .main {
         font-size: 13px;
         font-weight: bold;
         text-align: center;
-        color: v-bind('Colors.brownishGrey');
+        color: v-bind("Colors.brownishGrey");
       }
 
       .sub {
         font-size: 11px;
-        color: v-bind('Colors.coolGrey');
+        color: v-bind("Colors.coolGrey");
         text-align: center;
       }
     }
@@ -113,7 +134,7 @@ const mostChampionsInfos = computed(() => {
   }
 
   & + .champion-win-rate-table {
-    border-top: solid 1px v-bind('Colors.silverThree');
+    border-top: solid 1px v-bind("Colors.silverThree");
   }
 }
 </style>

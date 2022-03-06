@@ -43,7 +43,7 @@ const totalMatchCount = computed(() => props.winCount + props.loseCount);
     </div>
 
     <div class="unranked" v-if="!hasResults">
-      <img src="@/assets/unranked.png">
+      <img src="@/assets/unranked.png" />
       <div class="info">
         <div class="rank-type">{{ rankType }}</div>
         <div class="unranked">Unranked</div>
@@ -135,7 +135,7 @@ const totalMatchCount = computed(() => props.winCount + props.loseCount);
 
     & > .info {
       font-size: 13px;
-      color: v-bind('Colors.coolGrey');
+      color: v-bind("Colors.coolGrey");
 
       & > .rank-type {
         font-size: 11px;

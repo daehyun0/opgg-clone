@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import NavigationSection from "@/pages/SummonerDetailPage/components/section/NavigationSection.vue";
+import NavigationSection from "@/pages/SummonerDetailPage/components/NavigationSection/index.vue";
 import opggSummnoerAPI from "@/scripts/api/opgg-summnoer";
 import { ref } from "vue";
-import ProfileSection from "@/pages/SummonerDetailPage/components/section/ProfileSection.vue";
+import ProfileSection from "@/pages/SummonerDetailPage/components/ProfileSection/index.vue";
 import Divider from "@/components/Divider.vue";
-import RankAndMatchSection from "@/pages/SummonerDetailPage/components/section/RankAndMatchSection.vue";
+import RankAndMatchSection from "@/pages/SummonerDetailPage/components/RankAndMatchSection/index.vue";
 
 let previousTiers = ref(null);
 let profile = ref({

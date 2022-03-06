@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import RankSection from "@/pages/SummonerDetailPage/components/section/RankSection.vue";
-import MatchSection from "@/pages/SummonerDetailPage/components/section/MatchSection.vue";
+import RankSection from "@/pages/SummonerDetailPage/components/RankAndMatchSection/RankSection/index.vue";
+import MatchSection from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/index.vue";
 
 const props = defineProps<{
   leagues: Array<{

@@ -89,6 +89,10 @@ const lastGamesSummary = computed(() => {
         font-weight: bold;
         text-align: center;
         color: v-bind("Colors.black");
+
+        & > .death {
+          color: v-bind("Colors.reddish");
+        }
       }
 
       & > .average {
@@ -100,9 +104,6 @@ const lastGamesSummary = computed(() => {
       & > .value + .average {
         margin-top: 6px;
       }
-    }
-
-    & > .graph + .kda {
     }
   }
 

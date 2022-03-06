@@ -35,6 +35,7 @@ const Colors: { [key: string]: string } = {
   greyBlue: "#7aa5c3",
   warmPurple: "#7f3590",
   amethyst: "#8c51c5",
+  reddish: "#c6443e",
   reddishTwo: "#bf3b36",
   tomato: "#ec4f48",
 };

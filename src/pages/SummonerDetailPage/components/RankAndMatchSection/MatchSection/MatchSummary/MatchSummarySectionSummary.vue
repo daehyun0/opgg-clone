@@ -2,7 +2,7 @@
 import { computed, defineProps } from "vue";
 import kda from "@/scripts/domain/kda";
 import Colors from "@/scripts/colors";
-import MatchSummaryGraph from "@/pages/SummonerDetailPage/components/MatchSummaryGraph.vue";
+import MatchSummaryGraph from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryGraph.vue";
 import KdaRatioStringWithHighlight from "@/pages/SummonerDetailPage/components/KdaRatioStringWithHighlight.vue";
 
 const props = defineProps<{

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import MatchSummaryByRankType from "@/pages/SummonerDetailPage/components/MatchSummaryByRankType.vue";
-import MatchDetail from "@/pages/SummonerDetailPage/components/MatchDetail.vue";
+import MatchSummaryByRankType from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchSummary/MatchSummaryByRankType.vue";
+import MatchDetail from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchDetail/MatchDetail.vue";
 
 defineProps<{
   matchSummary: {

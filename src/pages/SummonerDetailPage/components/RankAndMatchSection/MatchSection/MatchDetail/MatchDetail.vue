@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import opggSummnoer from "@/scripts/api/opgg-summnoer";
-import MatchDetailCard from "@/pages/SummonerDetailPage/components/MatchDetailCard.vue";
+import MatchDetailCard from "@/pages/SummonerDetailPage/components/RankAndMatchSection/MatchSection/MatchDetail/MatchDetailCard.vue";
 import { ref } from "vue";
 
 const matches = ref({});
